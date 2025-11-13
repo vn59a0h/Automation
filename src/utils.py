@@ -1,13 +1,9 @@
-import pandas as pd
+def generate_dag_name(banner, tableLoadType, dlSchemaName, dlTableName):
+    """Generate formatted script string from input parameters."""
+    if isinstance(banner, list):
+        results = []
+        for b in banner:
+            results.append(f"INTLDLDAT-SA{b}-{tableLoadType}-{dlSchemaName.upper()}-{b}_{dlTableName}")
+        return results
+    return f"INTLDLDAT-SA{banner}-{tableLoadType}-{dlSchemaName.upper()}-{banner}_{dlTableName}"
 
-def read_conf_csv():
-    """Read and print the content of ingestion.csv file."""
-    try:
-        csv_reader = pd.read_csv('ingestion.csv')
-        print(csv_reader)
-    except FileNotFoundError:
-        print("Error: ingestion.csv file not found")
-    except Exception as e:
-        print(f"Error reading CSV file: {e}")
-
-read_conf_csv()
