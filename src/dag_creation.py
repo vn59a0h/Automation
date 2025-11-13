@@ -1,4 +1,5 @@
-def prepare_dag_file(sample_dag_file, dag_config, output_file):
+import os
+def prepare_dag_file(sample_dag_file, dag_config):
     """
     Generate a customized DAG file from template using string replacement
     
@@ -7,6 +8,12 @@ def prepare_dag_file(sample_dag_file, dag_config, output_file):
         dag_config: Dictionary with configuration values
         output_file: Path to output file
     """
+    
+    output_dir = dag_config['output_dir']
+    os.makedirs(output_dir, exist_ok=True)
+    
+    output_file = os.path.join(output_dir, f"{dag_config['dag_name']}.py")
+    
     with open(sample_dag_file, 'r') as file:
         lines = file.readlines()
     
