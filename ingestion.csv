@@ -1,2 +1,3 @@
-icdsTableName,BANNER_NAME,dataSensitivity,OP-Company code,dlSchemaName,dlTableName,tableLoadType,keyPreCombine,keyPrimaryKey
-IKPF,"MDD,MAK,MSB",se,"SA-MDD,SA-MAK,SA-MSB",sa_mdse_dl_secure,PHYSL_INVT_DOC,INC,ds_load_ts,"clnt,application,cond_type,sales_org,distr_channel,site,artcl,sales_unit,valid_to"
+icdsTableName,BANNER_NAME,dataSensitivity,OP-Company code,dlSchemaName,dlTableName,tableLoadType,keyPreCombine,keyPrimaryKey,bucket_id
+IKPF,"MDD,MAK,MSB",se,"SA-MDD,SA-MAK,SA-MSB",sa_mdse_dl_secure,PHYSL_INVT_DOC,INC,ds_load_ts,"clnt,application,cond_type,sales_org,distr_channel,site,artcl,sales_unit,valid_to",123
+PF,"MDD,MAK,MSB",se,"SA-MDD,SA-MAK,SA-MSB",sa_mdse_dl_table,PHYSL_INVT_DOC,INC,ds_load_ts,"clnt,application,cond_type,sales_org,distr_channel,site,artcl,sales_unit,valid_to",345
