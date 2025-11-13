@@ -1,0 +1,2 @@
+icdsTableName,BANNER_NAME,dataSensitivity,OP-Company code,dlSchemaName,dlTableName,tableLoadType,keyPreCombine,keyPrimaryKey
+A071,"GAME, MAKRO, BUILDERS,MASSMART,WALMART",se,"SA-MDD,SA-MAK,SA-MSB",sa_mdse_dl_secure,site_article_info,incremental,ds_load_ts,"clnt,application,cond_type,sales_org,distr_channel,site,artcl,sales_unit,valid_to"
