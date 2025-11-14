@@ -1,0 +1,39 @@
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] VALIDATION PHASE
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] ✓ Reading file: ../ingestion.csv
+[2025-11-14 07:33:34] [INFO] ✓ Found 2 rows to process
+[2025-11-14 07:33:34] [INFO] ✓ All required columns present
+[2025-11-14 07:33:34] [INFO] ✓ All 2 rows validated successfully
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] CHECKING DEPENDENCIES
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] ✓ Bucket ID mapping: ../buckets/bucket_id.csv
+[2025-11-14 07:33:34] [INFO] ✓ Sample DAG template: ../sample_dag.py
+[2025-11-14 07:33:34] [INFO] ✓ Sample SQL template: ../sample_sql.sql
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] EXTRACTING BUCKET MAPPINGS
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] ✓ Bucket mappings extracted
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] GENERATING DAGs AND SQL FILES
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] ✓ Generated DAG: INTLDLDAT-SAMDD-INC-SA_MDSE_DL_SECURE-MDD_PHYSL_INVT_DOC
+[2025-11-14 07:33:34] [INFO] ✓ Generated DAG: INTLDLDAT-SAMAK-INC-SA_MDSE_DL_SECURE-MAK_PHYSL_INVT_DOC
+[2025-11-14 07:33:34] [INFO] ✓ Generated DAG: INTLDLDAT-SAMSB-INC-SA_MDSE_DL_SECURE-MSB_PHYSL_INVT_DOC
+[2025-11-14 07:33:34] [INFO] ✓ Generated DAG: INTLDLDAT-SAMDD-INC-SA_MDSE_DL_TABLE-MDD_PHYSL_INVT_DOC
+[2025-11-14 07:33:34] [INFO] ✓ Generated DAG: INTLDLDAT-SAMAK-INC-SA_MDSE_DL_TABLE-MAK_PHYSL_INVT_DOC
+[2025-11-14 07:33:34] [INFO] ✓ Generated DAG: INTLDLDAT-SAMSB-INC-SA_MDSE_DL_TABLE-MSB_PHYSL_INVT_DOC
+[2025-11-14 07:33:34] [INFO] ✓ Generated 6 DAG(s)
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] GENERATING UPLOAD COMMANDS
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] ✓ Generated 6 upload command(s)
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] EXECUTION SUMMARY
+[2025-11-14 07:33:34] [INFO] ================================================================================
+[2025-11-14 07:33:34] [INFO] Log file: ingestion_run_20251114_073334.log
+[2025-11-14 07:33:34] [INFO] Environment: dev
+[2025-11-14 07:33:34] [INFO] Errors: 0
+[2025-11-14 07:33:34] [INFO] Warnings: 0
+[2025-11-14 07:33:34] [INFO] ================================================================================
