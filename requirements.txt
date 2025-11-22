@@ -1,3 +1,2 @@
 pandas
 nltk
-ipywidgets
