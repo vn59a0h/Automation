@@ -17,4 +17,7 @@ pip install -r requirements.txt
 ```
 
 **Step 4:**  
-Setup completed! You can run Notebook.
+Setup completed! You can run Notebook `pipeline.ipynb`.
+```sh
+jupyter notebook
+```
