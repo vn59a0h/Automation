@@ -6,3 +6,4 @@ configs
 .venv
 venv
 .DS_Store
+.ipynb_checkpoints
