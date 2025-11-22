@@ -1,0 +1,162 @@
+﻿
+		Table Name	Short Description
+		Table field	Ac	Short Description	Package	Author	Date	Tab.cat.	TabPos	Name of include	Data element	Domain name	Key	Check table	Defaults	Chg	SET/GET Parameter ID	Reference table	Ref. field	Data Type	Length	OutLeng	Lowercase	Dec.Places	Sn	Heading	Short	Medium Field Label	Long field label	L
+
+		/SCWM/ORDIM_O	Warehouse Tasks Open
+	X	MANDT	A	Client	/SCWM/CORE	SAP	24.08.1995	TRANSP	     2		MANDT	MANDT	X	*						CLNT	     3	      3				Cl.	Client	Client	Client
+	X	LGNUM	A	Warehouse Number/Warehouse Complex	/SCWM/CORE	SAP	08.04.2016	TRANSP	     3		/SCWM/LGNUM	/SCWM/LGNUM	X			X	/SCWM/LGN			CHAR	     4	      4				WhN	Whse No.	Warehouse No.	Warehouse Number
+	X	TANUM	A	Warehouse Task	/SCWM/CORE	SAP	08.04.2016	TRANSP	     4		/SCWM/TANUM	/SCWM/TANUM	X				/SCWM/TAN			NUMC	    12	     12				Whse Task	WT	Warehouse Task	Warehouse Task
+	X	FLGHUTO	A	Handling Unit Warehouse Task	/SCWM/CORE	SAP	08.04.2016	TRANSP	     6		/SCWM/FLGHUTO	XFELD			X					CHAR	     1	      1				HU WT	HU WT	HU Whse Task	HU Warehouse Task
+	X	PROCTY	A	Warehouse Process Type	/SCWM/CORE	SAP	26.11.2018	TRANSP	     7		/SCWM/DE_PROCTY	/SCWM/DO_PROCTY		*		X	/SCWM/PRT			CHAR	     4	      4				Proc. Type	Proc. Type	Whse Proc. Type	Whse Process Type
+	X	TRART	A	Warehouse Process Category	/SCWM/CORE	SAP	26.11.2018	TRANSP	     8		/SCWM/LVS_TRART	/SCWM/LVS_TRART		*						CHAR	     1	      1				C	Proc. Cat.	Proc. Category	Whse Proc. Category
+	X	PRCES	A	Storage Process	/SCWM/CORE	SAP	26.11.2018	TRANSP	     9		/SCWM/DE_PRCES	/SCWM/DO_PRCES		*						CHAR	     4	      4				Stor Proc.	Stor Proc.	Storage Process	Storage Process
+	X	PROCS	A	External Storage Process Step	/SCWM/CORE	SAP	08.04.2016	TRANSP	    10		/SCWM/DE_PROCS	/SCWM/DO_PROCS		*						CHAR	     4	      4				Process Step	Step	External Step	External Process Step
+	X	TOSTAT	A	Warehouse Task Status	/SCWM/CORE	SAP	08.04.2016	TRANSP	    11		/SCWM/DE_TOSTAT	/SCWM/DO_TOSTAT			X					CHAR	     1	      1				WT Status	Status	WT Status	Warehouse Task Status
+	X	CREATED_BY	A	Created By	/SCWM/CORE	SAP	08.04.2016	TRANSP	    12		/SCWM/DE_CREATOR	UNAME								CHAR	    12	     12				Created By	Created By	Created By	Created By
+	X	CREATED_AT	A	Creation Time	/SCWM/CORE	SAP	08.04.2016	TRANSP	    13		/SCWM/DE_CREATED_DT	/SCWM/DO_TIMESTAMP_WH								DEC	    15	     19				Creation Time	CreatnTime	Creation Time	Creation Time
+	X	WTCODE	A	Calling Application/Special Function for WT Creation/Conf.	/SCWM/CORE	SAP	08.04.2016	TRANSP	    14		/SCWM/DE_WTCODE	/SCWM/DO_WTCODE			X					CHAR	     1	      1				WT Code	WT Code	WT Code	WT Code
+	X	PRSRC	A	Executing Resource (Means of Transport or User)	/SCWM/CORE	SAP	08.04.2016	TRANSP	    15		/SCWM/DE_PRSRC	/SCWM/DO_RSRC								CHAR	    18	     18				Executing Resource	Resource	Resource	Executing Resource
+	X	REASON	A	Reason for Movements in the Warehouse	/SCWM/CORE	SAP	26.11.2018	TRANSP	    16		/SCWM/DE_REASON	/SCWM/DO_REASON				X				CHAR	     4	      4				Reasn	Reason	Movement Reason	Movement Reason
+	X	PRIORITY	A	Priority	/SCWM/CORE	SAP	08.04.2016	TRANSP	    17		/SCWM/DE_PRIOR	/SCWM/DO_PRIOR			X					INT1	     3	      3				Priority	Priority	Priority	Priority
+	X	GUID_STOCK	A	GUID Stock Item	/SCWM/CORE	SAP	11.06.2015	TRANSP	    18		/LIME/GUID_STOCK									RAW	    16	     32				GUID Stock	GUID Stock	GUID Stock	GUID Stock
+	X	IDX_STOCK	A	Current Nummer of Key Table	/SCWM/CORE	SAP	11.06.2015	TRANSP	    19		/LIME/KEY_INDEX									CHAR	     3	      3				KTab	Key		Key Table
+	X	MATID	A	Product	/SCWM/CORE	SAP	08.04.2016	TRANSP	    21		/SCWM/DE_MATID	/SCMB/MDL_MATID_CE				X				RAW	    16	     40				Product	Product	Product	Product
+	X	BATCHID	A	Batch	/SCWM/CORE	SAP	08.04.2016	TRANSP	    22		/SCWM/DE_BATCHID	/SCWM/DO_BATCHID								RAW	    16	     32				Batch	Batch	Batch	Batch
+	X	CAT	A	Stock Type	/SCWM/CORE	SAP	11.06.2015	TRANSP	    23		/LIME/STOCK_CATEGORY	/LIME/STOCK_CATEGORY								CHAR	     2	      2				Typ	Type		Stock Type
+	X	STOCK_DOCCAT	A	Special Reference Stock Type	/SCWM/CORE	SAP	30.04.2022	TRANSP	    24		/SCWM/DE_STOCK_DOCCAT	/SCWM/DO_STOCK_DOCCAT			X	X				CHAR	     3	      3				Tpe	Type	Type	Type
+	X	STOCK_DOCNO	A	Reference Document for Special Reference Stock	/SCWM/CORE	SAP	30.04.2022	TRANSP	    25		/SCWM/DE_STOCK_DOCNO					X				CHAR	    35	     35				Stock Reference Document	StkRef.Doc	Stk Ref. Doc.	Stock Reference Doc.
+	X	STOCK_ITMNO	A	Sales Order Item for Sales Order Stock	/SCWM/CORE	SAP	01.04.2022	TRANSP	    26		/SCWM/DE_STOCK_ITMNO					X				NUMC	    10	     10				SlsOrd.Itm	SlsOrd.Itm	Sls Order Item	Sales Order Item
+	X	DOCCAT	A	Doc. Category for Doc. Reference and Doc.-Related Stock	/SCWM/CORE	SAP	13.06.2021	TRANSP	    27		/SCWM/DE_DOCCAT	/SCWM/DO_DOCCAT			X					CHAR	     3	      3				Cat	Doc. Cat.	Document Cat.	Document Category
+	X	STOCK_USAGE	A	Stock Usage	/SCWM/CORE	SAP	11.06.2015	TRANSP	    28		/LIME/STOCK_USAGE	/LIME/STOCK_USAGE								CHAR	     1	      1				Use	Usage	Usage	Usage
+	X	OWNER	A	Owner	/SCWM/CORE	SAP	24.04.2017	TRANSP	    29		/SCWM/DE_OWNER	/SCMB/DO_BU_PARTNER								CHAR	    10	     28				Owner	Owner	Owner	Owner
+	X	OWNER_ROLE	A	Partner Role of Owner	/SCWM/CORE	SAP	11.06.2015	TRANSP	    30		/LIME/OWNER_ROLE	/LIME/PARTNER_ROLE			X					CHAR	     2	      2				Role	Role	Partner Role	Partner Role
+	X	ENTITLED	A	Party Entitled to Dispose	/SCWM/CORE	SAP	26.11.2018	TRANSP	    31		/SCWM/DE_ENTITLED	BU_PARTNER		*		X	/SCWM/ENTITLED			CHAR	    10	     10				Disposal	Disposal	Disposal Party	Party Entitled to Dispose
+	X	ENTITLED_ROLE	A	Partner Role of Party Entitled to Dispose	/SCWM/CORE	SAP	08.04.2016	TRANSP	    32		/SCWM/DE_ENTITLED_ROLE	/SCWM/DO_PARTNER_ROLE			X	X				CHAR	     2	      2				Role	Role	Partner Role	Partner Role
+	X	STOCK_CNT	A	Counter for Stock Separation	/SCWM/CORE	SAP	08.04.2016	TRANSP	    33		/SCWM/DE_STOCK_CNT									NUMC	     6	      6				Count.	Counter	Counter	Counter
+	X	CHARG	A	Batch	/SCWM/CORE	SAP	08.04.2016	TRANSP	    34		/SCWM/DE_CHARG	/SCWM/DO_CHARG								CHAR	    10	     10				Batch	Batch	Batch	Batch
+	X	REQ_SEG_LONG	A	Requirement Segment	/SCWM/CORE	SAP	30.04.2022	TRANSP	    35		/SCWM/REQ_SEG_LONG	/SCWM/REQ_SEG_LONG				X				CHAR	    40	     40				Requirement Segment	Reqmt Seg.	Reqmt Segment	Requirement Segment
+	X	STK_SEG_LONG	A	Stock Segment	/SCWM/CORE	SAP	01.04.2022	TRANSP	    36		/SCWM/STK_SEG_LONG	/SCWM/STK_SEG_LONG				X				CHAR	    40	     40				Stock Segment	Stock Seg.	Stock Segment	Stock Segment
+	X	MEINS	A	Base Unit of Measure	/SCWM/CORE	SAP	08.04.2016	TRANSP	    37		/SCWM/DE_BASE_UOM	MEINS		*						UNIT	     3	      3	X			BUn	BUoM	Base Unit	Base Unit of Measure
+	X	ALTME	A	Alternative Unit of Measure for Stockkeeping Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	    38		/SCWM/DE_AUNIT	MEINS		*						UNIT	     3	      3	X			AUn	Alt. Unit	Alternatve Unit	Alt. Unit of Measure
+	X	VSOLM	A	Target Quantity in Base Unit of Measure	/SCWM/CORE	SAP	08.04.2016	TRANSP	    39		/SCWM/LTAP_VSOLM	/SCWM/DO_QUANTITY						/SCWM/ORDIM_O	MEINS	QUAN	    31	     38		        14	X	Target Qty Bs	TgtQtyB	Target Qty Bs	Target Quantity Base
+	X	VSOLA	A	Target Quantity in Alternative Unit of Measure	/SCWM/CORE	SAP	08.04.2016	TRANSP	    40		/SCWM/LTAP_VSOLA	/SCWM/DO_QUANTITY						/SCWM/ORDIM_O	ALTME	QUAN	    31	     38		        14	X	Target Qty Al	TgtQtyA	Target Qty Alt	Target Quantity Altn
+	X	KQUAN	A	Retention Quantity	/SCWM/CORE	SAP	08.04.2016	TRANSP	    41		/SCWM/DE_KQUAN	/SCWM/DO_QUANTITY						/SCWM/ORDIM_O	MEINS	QUAN	    31	     38		        14	X	Retention Quantity	Retent.Qty	Retention Qty	Retention Quantity
+	X	LETYP	A	Handling Unit Type	/SCWM/CORE	SAP	08.04.2016	TRANSP	    42		/SCWM/DE_HUTYP	/SCWM/DO_HUTYP		*		X				CHAR	     4	      4				Handling Unit Type	HU Type	HU Type	Handling Unit Type
+	X	WEIGHT	A	Loading or Net Weight	/SCWM/CORE	SAP	26.11.2018	TRANSP	    44		/SCWM/DE_NWEIGHT	/SCWM/DO_CAP15						/SCWM/ORDIM_O	UNIT_W	QUAN	    15	     19		         3		Loading Weight	Load.Wgt	Loading Weight	Loading Weight
+	X	UNIT_W	A	Weight Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	    45		/SCWM/DE_WGT_UOM	MEINS		*		X				UNIT	     3	      3	X			Un	Unit	Weight Unit	Weight Unit
+	X	VOLUM	A	Loading or Net Volume	/SCWM/CORE	SAP	26.11.2018	TRANSP	    46		/SCWM/DE_NVOLUME	/SCWM/DO_CAP15						/SCWM/ORDIM_O	UNIT_V	QUAN	    15	     19		         3		Loading Volume	Loadg Vol.	Loading Volume	Loading Volume
+	X	UNIT_V	A	Volume Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	    47		/SCWM/DE_VOL_UOM	MEINS		*		X				UNIT	     3	      3	X			VUn	Vol. Unit	Volume Unit	Volume Unit
+	X	CAPA	A	Capacity Consumption	/SCWM/CORE	SAP	08.04.2016	TRANSP	    48		/SCWM/DE_CAPAUSE	/SCWM/DO_DEC15				X				DEC	    15	     19		         3		Capacity Consumpt.	Capacity	Capacity Usage	Capacity Consumption
+	X	PLACE_INV_P	A	Putaway Physical Inventory Planned	/SCWM/CORE	SAP	05.03.2021	TRANSP	    49		/SCWM/DE_PLACE_INV_P	/SCWM/DO_PLACE_INV_P			X					CHAR	     1	      1				PI Planned	PI Planned	Ptwy PI Plan.	Inventory on Putaway Planned
+	X	LOWCHK_INV_P	A	Low Stock Check Planned	/SCWM/CORE	SAP	05.03.2021	TRANSP	    50		/SCWM/DE_LOWCHK_INV_P	/SCWM/DO_LOWCHK_INV_P			X					CHAR	     1	      1				L.StkPln	LStChkPlnd	L.StkChk Plan.	Low Stock Check Planned
+	X	VFDAT	A	Shelf Life Expiration Date	/SCWM/CORE	SAP	26.11.2018	TRANSP	    51		/SCWM/SLED	DATUM								DATS	     8	     10				Expiration	Expiration	Expiration Date	Shelf Life Expiration Date
+	X	WDATU	A	Date and Time of Goods Receipt	/SCWM/CORE	SAP	08.04.2016	TRANSP	    52		/SCWM/LVS_WDATU	/SCWM/DO_TIMESTAMP_WH								DEC	    15	     19				GR Date	GR Date	GR Date	GR Date
+	X	COO	A	Country/Region of Origin	/SCWM/CORE	SAP	19.11.2020	TRANSP	    53		/SCWM/DE_COO	LAND1				X				CHAR	     3	      3				Origin	Origin	C/R of Orig.	Ctry/Reg. of Origin
+	X	HAZMAT	A	Hazardous Substance	/SCWM/CORE	SAP	08.04.2016	TRANSP	    54		/SCWM/DE_HAZMAT_TO	XFELD			X	X				CHAR	     1	      1				Hazardous Substance Relevant for Storage	Haz.Subs.	Hazardous Subs.	Haz. Sub. Strg-Rel.
+	X	INSPTYP	A	Inspection ID Type	/SCWM/CORE	SAP	18.05.2020	TRANSP	    55		/SCWM/DE_INSPIDTYP	/SCWM/DO_INSPIDTYP			X					CHAR	     1	      1				In.ID Ty.	In.ID Type	Insp. ID Type	Inspection ID Type
+	X	INSPID	A	Identification of a Quality Object	/SCWM/CORE	SAP	08.04.2016	TRANSP	    56		/SCWM/DE_INSPID									RAW	    16	     32				Inspection Object	Insp. Obj.	Inspection Obj.	Inspection Object
+	X	IDPLATE	A	Stock Identification of Warehouse Task	/SCWM/CORE	SAP	08.04.2016	TRANSP	    57		/SCWM/DE_IDPLATE_WT									CHAR	    20	     20				Target Stock ID	Target SID	Target Stock ID	Target Stock ID
+	X	DSTGRP	A	Consolidation Group	/SCWM/CORE	SAP	08.04.2016	TRANSP	    58		/SCWM/DE_DSTGRP					X				CHAR	    10	     10				CnsGrp	CnsGrp	Cons.Grp	Consolidation Group
+	X	VLTYP	A	Source Storage Type	/SCWM/CORE	SAP	05.03.2021	TRANSP	    59		/SCWM/LTAP_VLTYP	/SCWM/LGTYP		/SCWM/T301		X				CHAR	     4	      4				Type	Srce Type	Srce Stor. Type	Source Storage Type
+	X	VLBER	A	Source Storage Section	/SCWM/CORE	SAP	05.03.2021	TRANSP	    60		/SCWM/LTAP_VLBER	/SCWM/LGBER		/SCWM/T302						CHAR	     4	      4				Sec.	SrcStorSec	Src.Stor. Sectn	Source Stor. Section
+	X	VLPLA	A	Source Storage Bin	/SCWM/CORE	SAP	13.11.2019	TRANSP	    61		/SCWM/LTAP_VLPLA	/SCWM/LGPLA		/SCWM/LAGP		X				CHAR	    18	     18				Source Bin	Source Bin	Source Bin	Source Storage Bin
+	X	SLOGPOS	A	Source Logical Position of Handling Unit in Storage Bin	/SCWM/CORE	SAP	08.04.2016	TRANSP	    62		/SCWM/DE_SOURCE_LOGPOS									CHAR	     2	      2				Srce Pos	Srce Pos	Srce Log. Pos. of HU	Source Logical Pos. of HU
+	X	SRSRC	A	Source Resource (Means of Transport or User)	/SCWM/CORE	SAP	08.04.2016	TRANSP	    63		/SCWM/DE_SRSRC	/SCWM/DO_RSRC								CHAR	    18	     18				Source Resource	Src Res.	Source Resource	Source Resource
+	X	STU_NUM	A	Source Transportation Unit (Internal)	/SCWM/CORE	SAP	08.04.2016	TRANSP	    64		/SCWM/DE_STU_NUM	/SCWM/DO_TU_NUM								CHAR	    18	     18				Int. Source TU	Int.Src TU	Int. Source TU	Internal Source TU
+	X	SLOC_TYPE	A	Location Type	/SCWM/CORE	SAP	08.04.2016	TRANSP	    65		/SCWM/DE_LOC_TYPE	/SCWM/DO_LOC_TYPE			X					CHAR	     1	      1				LcType	Loc. Type	Loc. Type	Location Type
+	X	SGUID_HU	A	Unique Internal Identification of a Handling Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	    66		/SCWM/GUID_HU									RAW	    16	     32				HU GUID	HU GUID	HU GUID	HU GUID
+	X	VLENR	A	Source Handling Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	    67		/SCWM/LTAP_VLENR	/SCWM/DO_HUIDENT		*			LEN			CHAR	    20	     20				Source Handling Unit	Source HU	Source HU	Source Handling Unit
+	X	NLTYP	A	Destination Storage Type	/SCWM/CORE	SAP	08.04.2016	TRANSP	    68		/SCWM/LTAP_NLTYP	/SCWM/LGTYP		/SCWM/T301						CHAR	     4	      4				Type	Stor. Type	Dest. Stor. Ty.	Dest. Storage Type
+	X	NLBER	A	Destination Storage Section	/SCWM/CORE	SAP	08.04.2016	TRANSP	    69		/SCWM/LTAP_NLBER	/SCWM/LGBER		/SCWM/T302						CHAR	     4	      4				Sec.	Dest. Sec.	Dest. Section	Dest. Stor. Section
+	X	NLPLA	A	Destination Storage Bin	/SCWM/CORE	SAP	13.11.2019	TRANSP	    70		/SCWM/LTAP_NLPLA	/SCWM/LGPLA		/SCWM/LAGP		X				CHAR	    18	     18				Dest. Bin	Dest. Bin	Destination Bin	Destination Bin
+	X	DLOGPOS	A	Destination Logical Position of Handling Unit in Storage Bin	/SCWM/CORE	SAP	08.04.2016	TRANSP	    71		/SCWM/DE_DEST_LOGPOS									CHAR	     2	      2				Dest Pos	Dest Pos	Dest. Log Pos. of HU	Dest. Logical Pos. of HU
+	X	DLOGPOS_EXT_WT	A	Handling Unit Position	/SCWM/CORE	SAP	15.03.2020	TRANSP	    72		/SCWM/DE_LOGPOS_WT	/SCWM/DO_LOGPOS_WT								CHAR	    35	     35				Handling Unit Position	Pos.	HU Position	Handling Unit Position
+	X	DRSRC	A	Destination Resource (Means of Transport or User)	/SCWM/CORE	SAP	08.04.2016	TRANSP	    73		/SCWM/DE_DRSRC	/SCWM/DO_RSRC								CHAR	    18	     18				Dest.Resource	Dest. Res.	Dest.Resource	Dest.Resource
+	X	DTU_NUM	A	Destination Transportation Unit (Internal)	/SCWM/CORE	SAP	08.04.2016	TRANSP	    74		/SCWM/DE_DTU_NUM	/SCWM/DO_TU_NUM								CHAR	    18	     18				Int.Destination TU	Int.Dst.TU	Int. Dest. TU	Int. Destination TU
+	X	DLOC_TYPE	A	Location Type	/SCWM/CORE	SAP	08.04.2016	TRANSP	    75		/SCWM/DE_LOC_TYPE	/SCWM/DO_LOC_TYPE			X					CHAR	     1	      1				LcType	Loc. Type	Loc. Type	Location Type
+	X	DGUID_HU	A	Unique Internal Identification of a Handling Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	    76		/SCWM/GUID_HU									RAW	    16	     32				HU GUID	HU GUID	HU GUID	HU GUID
+	X	NLENR	A	Destination Handling Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	    77		/SCWM/LTAP_NLENR	/SCWM/DO_HUIDENT		*			LEN			CHAR	    20	     20				Dest. Handling Unit	Dest.HU	Destination HU	Dest. Handling Unit
+	X	DESTD	A	Destination Storage Bin Determined By	/SCWM/CORE	SAP	08.04.2016	TRANSP	    78		/SCWM/DE_DESTD	/SCWM/DO_DESTD			X					CHAR	     1	      1				Bin	Bin	Destination Bin	Dest. Storage Bin Found
+	X	KZSUB	A	Indicator: Pass on Warehouse Task to Subsystem	/SCWM/CORE	SAP	08.04.2016	TRANSP	    79		/SCWM/LTAP_KZSUB	/SCWM/LTAP_KZSUB			X					CHAR	     1	      1				Sub	Subsystem	WT to Subsys.	WT to Subsystem
+	X	SOLPO	A	Planned Proc. Time in Warehouse Task	/SCWM/CORE	SAP	06.04.2021	TRANSP	    80		/SCWM/LTAP_SOLPO	PW_QUAN13						/SCWM/ORDIM_O	ZEIEI	QUAN	    13	     18		         3	X	PlndProcTimeWT	Plan Time	PlndProcTime WT	Plnd Proc. Time WT
+	X	ZEIEI	A	Time Unit	/SCWM/CORE	SAP	26.11.2018	TRANSP	    81		/SCWM/LVS_ZEIEI	MEINS		*						UNIT	     3	      3	X			UoM	Time Unit	Time Unit	Time Unit
+	X	VAS	A	WT with Reference to a VAS	/SCWM/CORE	SAP	08.04.2016	TRANSP	    82		/SCWM/DE_VASTO	/SCWM/DO_VASTO			X					CHAR	     1	      1				WT for VAS	VAS	WT for VAS	WT for VAS
+	X	JIT_RELEVANCE	A	Relevance for JIT Process	/SCWM/CORE	SAP	04.04.2020	TRANSP	    83		/SCWM/DE_JIT_RELEVANCE	BOOLE			X					CHAR	     1	      1				Relevance for JIT Process	JIT Relev.	JIT Relevance	Relevance for JIT Process
+	X	BATCH_NOCHG	A	Changing the Batch is not Allowed	/SCWM/CORE	SAP	08.04.2016	TRANSP	    84		/SCWM/DE_BATCH_NOCHG	XFELD			X					CHAR	     1	      1				Change Batch	ChngeBatch	Change Batch	Change Batch
+	X	RDOCCAT	A	Doc. Category for Doc. Reference and Doc.-Related Stock	/SCWM/CORE	SAP	13.06.2021	TRANSP	    85		/SCWM/DE_DOCCAT	/SCWM/DO_DOCCAT			X					CHAR	     3	      3				Cat	Doc. Cat.	Document Cat.	Document Category
+	X	RDOCID	A	Doc. Identification for Document-Related Stocks	/SCWM/CORE	SAP	08.04.2016	TRANSP	    86		/SCWM/DE_DOCID	/SCWM/DO_DOCID								RAW	    16	     32				Document ID	Doc.ID	Document ID	Document ID
+	X	RITMID	A	Document Item for Document-Related Stocks	/SCWM/CORE	SAP	08.04.2016	TRANSP	    87		/SCWM/DE_ITMID									RAW	    16	     32				Document Item	Item	Item	Document Item
+	X	WAVE	A	Wave	/SCWM/CORE	SAP	08.04.2016	TRANSP	    88		/SCWM/DE_WAVE	/SCWM/DO_WAVE		*						NUMC	    10	     10				Wave	Wave	Wave	Wave
+	X	WAVE_ITM	A	Wave Item	/SCWM/CORE	SAP	08.04.2016	TRANSP	    89		/SCWM/DE_WAVE_ITM	/SCWM/DO_WAVE_ITM								NUMC	     6	      6				Wave Item	Item	Wave Item	Wave Item
+	X	L2SKA	A	Warehouse Task Type Within Two-Step Picking	/SCWM/CORE	SAP	08.04.2016	TRANSP	    90		/SCWM/DE_L2SKA	/SCWM/DO_L2SKA			X					CHAR	     1	      1				WTType	WT Type	WT Type	Warehouse Task Type
+	X	L2SKR	A	Relevance for Two-Step Picking	/SCWM/CORE	SAP	08.04.2016	TRANSP	    91		/SCWM/DE_L2SKR	/SCWM/DO_L2SKR			X	X				CHAR	     1	      1				2StP	TwoStepPic	Two-Step Pick.	Two-Step Picking
+	X	WITHDRAWAL_GROUP	A	Withdrawal Group for Two-Step Picking	/SCWM/CORE	SAP	01.04.2022	TRANSP	    92		/SCWM/DE_WAVE_WITHDRAWAL_GROUP									NUMC	     6	      6				Withdrawal Group for Two-Step Picking	Withdr Grp	Withdraw. Group	Withdrawal Group for Two-Step Picking
+	X	QDOCCAT	A	Doc. Category for Doc. Reference and Doc.-Related Stock	/SCWM/CORE	SAP	13.06.2021	TRANSP	    93		/SCWM/DE_DOCCAT	/SCWM/DO_DOCCAT			X					CHAR	     3	      3				Cat	Doc. Cat.	Document Cat.	Document Category
+	X	QDOCID	A	Doc. Identification for Document-Related Stocks	/SCWM/CORE	SAP	08.04.2016	TRANSP	    94		/SCWM/DE_DOCID	/SCWM/DO_DOCID								RAW	    16	     32				Document ID	Doc.ID	Document ID	Document ID
+	X	QITMID	A	Document Item for Document-Related Stocks	/SCWM/CORE	SAP	08.04.2016	TRANSP	    95		/SCWM/DE_ITMID									RAW	    16	     32				Document Item	Item	Item	Document Item
+	X	QIDPLATE	A	Identification Number of Stock	/SCWM/CORE	SAP	08.04.2016	TRANSP	    96		/SCWM/DE_IDPLATE					X				CHAR	    20	     20				Stock ID	Stock ID	Stock ID	Stock Identification
+	X	KIT_CREA	A	Create Kit Item in HU Automatically During Picking	/SCWM/CORE	SAP	08.04.2016	TRANSP	    97		/SCWM/DE_KIT_CREA	XFELD			X					CHAR	     1	      1				Create Kit Item Automatically During Picking	Create KI	Create Kit Item	Create Kit Item Automatically
+	X	GUID_TO	A	Unique Internal Identification of a Warehouse Task	/SCWM/CORE	SAP	08.04.2016	TRANSP	    98		/SCWM/DE_GUID_TO									RAW	    16	     32				GUID WT	GUID WT	GUID WT	GUID WT
+	X	DBIND	A	Specifies Documentary Batch	/SCWM/CORE	SAP	08.04.2016	TRANSP	    99		/SCWM/DE_DBATCHIND	/SCWM/DO_DBATCHIND			X	X				CHAR	     1	      1				Doc. Batch	Doc. Batch	Doc. Batch	Documentary Batch
+	X	MFS_CS	A	Conveyor Technique Segment	/SCWM/CORE	SAP	08.04.2016	TRANSP	   100		/SCWM/DE_MFSCS	/SCWM/DO_MFSCS		*						CHAR	    10	     10				Seg.	Seg.	Segment	Segment
+	X	PSA	A	Production Supply Area	/SCWM/CORE	SAP	01.03.2019	TRANSP	   101		/SCWM/DE_PSA	/SCWM/DO_PSA		*		X				CHAR	    15	     15				Production Supply Area	PSA	Supply Area	Supply Area
+	X	PROD_ORDER	A	Manufacturing Order	/SCWM/CORE	SAP	08.04.2016	TRANSP	   102		/SCWM/DE_PROD_ORDER	AUFNR		*						CHAR	    12	     12				Manufacturing Order	Man. Ord.	Manuf. Order	Manufacturing Order
+	X	CREATED_AT_WH	A	Creation Time in Warehouse Time Zone	/SCWM/CORE	SAP	24.04.2019	TRANSP	   104		/SCWM/DE_CREATED_DT_WH	/SCWM/DO_TIMESTAMP								DEC	    15	     19				Creation Time in Warehouse Time Zone	Crtn Time	Creation Time	Creation Time in Warehouse Time Zone
+	X	CHANGED_AT_WH	A	Time of Change in Warehouse Time Zone	/SCWM/CORE	SAP	24.04.2019	TRANSP	   105		/SCWM/DE_CHANGED_DT_WH	/SCWM/DO_TIMESTAMP								DEC	    15	     19				Time of Change in Warehouse Time Zone	Chg. Time	Time of Change	Time of Change in Warehouse Time Zone
+	X	KANBAN	A	Unique Kanban ID	/SCWM/CORE	SAP	08.04.2016	TRANSP	   106		/SCMB/DM_KANBAN_ID	/SCMB/DM_KANBAN_ID								CHAR	    10	     10				Kanban ID	Kanban ID	Kanban ID	Kanban ID
+	X	SUOM	A	Alternative Unit of Measure for Stockkeeping Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	   107		/SCWM/DE_AUNIT	MEINS		*						UNIT	     3	      3	X			AUn	Alt. Unit	Alternatve Unit	Alt. Unit of Measure
+	X	AAREA	A	Activity Area	/SCWM/CORE	SAP	31.01.2018	TRANSP	   109		/SCWM/DE_AAREA	/SCWM/DO_AAREA				X				CHAR	     4	      4				Activity Area	Acty Area	Activity Area	Activity Area
+	X	QUEUE	A	Queue	/SCWM/CORE	SAP	08.04.2016	TRANSP	   110		/SCWM/DE_QUEUE	/SCWM/DO_QUEUE		*						CHAR	    10	     10				Q	Queue	Queue	Queue
+	X	WHO	A	Warehouse Order Number	/SCWM/CORE	SAP	08.04.2016	TRANSP	   111		/SCWM/DE_WHO	/SCWM/DO_WHO								NUMC	    10	     10				Whse Order	Whse Order	Warehouse Order	Warehouse Order
+	X	REPID	A	Table Log Record: Program Name	/SCWM/CORE	SAP	08.04.2016	TRANSP	   113		/SCWM/TABLE_LOG_REPID	PROGRAMM		*						CHAR	    40	     40				Program	Program	Program	Program
+	X	TCODE	A	Table Log Record: Transaction Code	/SCWM/CORE	SAP	08.04.2016	TRANSP	   114		/SCWM/TABLE_LOG_TCODE	TCODE		*						CHAR	    20	     20				TCode	Transact.	Transaction Code	Transaction Code
+	X	ORDIM_DUMMY	A	Dummy function in length 1	/SCWM/CORE	SAP	10.03.1992	TRANSP	   116		DUMMY	DUMMY								CHAR	     1	      1
+	X	ZEUGN	A	Certificate Number	/SCWM/CORE	SAP	08.04.2016	TRANSP	   117		/SCWM/LVS_ZEUGN	/SCWM/LVS_ZEUGN								CHAR	    10	     10				Cert. No.	Cert. No.	Cert. No.	Certificate Number
+	X	ORDIM_PS_DUMMY	A	Dummy function in length 1	/SCWM/CORE	SAP	10.03.1992	TRANSP	   119		DUMMY	DUMMY								CHAR	     1	      1
+	X	CHANGED_AT	A	Time of Change	/SCWM/CORE	SAP	08.04.2016	TRANSP	   120		/SCWM/DE_CHANGED_DT	/SCWM/DO_TIMESTAMP_WH								DEC	    15	     19				Time of Change	Chge Time	Change Time	Time of Change
+	X	MMIM_MBLNR	A	Number of Material Document	/SCWM/CORE	SAP	24.04.2019	TRANSP	   122		/SCWM/DE_ORDIM_MMIM_MBLNR	BELNR								CHAR	    10	     10				Mat. Doc.	Mat. Doc.	Material Doc.	Material Document
+	X	MMIM_MJAHR	A	Material Document Year	/SCWM/CORE	SAP	13.05.2019	TRANSP	   123		/SCWM/DE_ORDIM_MMIM_MJAHR	GJAHR								NUMC	     4	      4				Material Doc. Year	Mat. Year	Mat. Doc. Year	Material Doc. Year
+	X	MMIM_ZEILE	A	Item in Material Document	/SCWM/CORE	SAP	28.05.2021	TRANSP	   124		/SCWM/DE_ORDIM_MMIM_MBLPO	MBLPO								NUMC	     4	      4				Item	Item	Mat. Doc. Item	Material Doc. Item
+	X	MMIM_LINE_ID	A	Unique Identification Number of Document Line	/SCWM/CORE	SAP	13.05.2019	TRANSP	   125		/SCWM/DE_ORDIM_MMIM_MB_LINE_ID	MB_LINE_ID								NUMC	     6	      6				ID	ID	Line ID	Identification
+	X	MMIM_BUDAT_MIGRATION	A	Posting Date in Inventory Management for Migration	/SCWM/CORE	SAP	06.04.2021	TRANSP	   126		/SCWM/DE_MMIM_BUDAT_MIGRATION	DATUM								DATS	     8	     10				Pstng Date	Pstng Date	Posting Date	Posting Date
+	X	GUID_PAS	A	GUID for Preallocated Stock	/SCWM/CORE	SAP	18.05.2020	TRANSP	   127		/SCWM/DE_GUID_PAS									RAW	    16	     32				GUID for Preallocated Stock	GUID	GUID for Pre. Stock	GUID for Preallocated Stock
+	X	REF_WT_RSRC	A	Reference to WT from Source Bin to Resource	/SCWM/CORE	SAP	18.05.2020	TRANSP	   128		/SCWM/DE_REF_WT_RSRC	/SCWM/TANUM								NUMC	    12	     12				Reference to WT from Source Bin to Resource	Ref.	Ref. to WT	Reference to WT
+	X	MES_IND	A	Relevant to Manufacturing Execution System	/SCWM/CORE	SAP	06.04.2021	TRANSP	   129		/SCWM/DE_MES_IND	XFELD			X	X				CHAR	     1	      1				Relevant for Manufacturing Execution System	MES-Rlvt	MES-Relevant	Manufacturing Execution System-Relevant
+	X	ACT_TYPE	A	Activity	/SCWM/CORE	SAP	08.04.2016	TRANSP	   131		/SCWM/DE_ACTTY	/SCWM/DO_ACTTY		*						CHAR	     4	      4				Activity	Activity	Activity	Activity
+	X	HU_EMPTY	A	Handling Unit Does Not Contain Any Stock	/SCWM/CORE	SAP	26.11.2018	TRANSP	   132		/SCWM/DE_HUEMPTY	XFELD			X					CHAR	     1	      1				E	HU Empty	HU Empty	HU Empty
+	X	STOKEY1	A	Hazard Rating 1	/SCWM/CORE	SAP	08.04.2016	TRANSP	   133		/SEHS/HME_STOKEY1	HSMD_STOKEY		*						CHAR	     5	      5				HazRat1	Haz.Rating	Haz. Rating 1	Hazard Rating 1
+	X	STOKEY2	A	Hazard Rating 2	/SCWM/CORE	SAP	08.04.2016	TRANSP	   134		/SEHS/HME_STOKEY2	HSMD_STOKEY		*						CHAR	     5	      5				HazRat2	Haz.Rating	Haz. Rating 2	Hazard Rating 2
+	X	VANZL	A	Number of Handling Units to Be Removed from Bulk Storage	/SCWM/CORE	SAP	08.04.2016	TRANSP	   135		/SCWM/LTAP_VANZL	/SCWM/LAGP_ANZLE								DEC	     6	      7				HUs Rem.	HU for SR	HUs forStckRmvl	HUs for Stock Remvl
+	X	NANZL	A	Number of Handling Units to Be Put Away to Bulk Storage	/SCWM/CORE	SAP	08.04.2016	TRANSP	   136		/SCWM/LTAP_NANZL	/SCWM/LAGP_ANZLE								DEC	     6	      7				HUforPA	HU for PA	HUs to Be PutAw	HUs to Be Put Away
+	X	HOMVE	A	Stock Removal of Whole, Homogenous Handling Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	   137		/SCWM/LTAP_HOMVE									CHAR	     1	      1				Whole HU	Whole HU	Rem. Whole HU	Removal of Whole HU
+	X	MOVEHU	A	Movement of Source HU	/SCWM/CORE	SAP	08.04.2016	TRANSP	   138		/SCWM/DE_MOVEHU	/SCWM/DO_MOVEHU			X					CHAR	     1	      1				Move HU	HU	Move HU	Move HU
+	X	POSTY	A	Type of Warehouse Task	/SCWM/CORE	SAP	08.04.2016	TRANSP	   139		/SCWM/LTAP_POSTY	/SCWM/LTAP_POSTY			X					CHAR	     1	      1				T	Item Cat.	Item Category	Item Category
+	X	NEGAT	A	Negative Stock	/SCWM/CORE	SAP	15.01.2020	TRANSP	   140		/SCWM/T331_NEGAT	/SCWM/DO_NEGAT			X					CHAR	     1	      1				Neg Stk	Neg. Stock	Negative Stock	Negative Stock
+	X	PICK_ALL	A	Withdraw All Stock from Storage Bin	/SCWM/CORE	SAP	08.04.2016	TRANSP	   141		/SCWM/DE_PICK_ALL	/SCWM/DO_PICK_ALL			X	X				CHAR	     1	      1				Withdraw All Stock from Storage Bin	All	Withdraw All	Withdraw All
+	X	ROUTETO	A	WT Created for Storage Control	/SCWM/CORE	SAP	08.04.2016	TRANSP	   142		/SCWM/DE_ROUTE_TO	/SCWM/DO_ROUTE_TO			X					CHAR	     1	      1				Route WT	Route WT	Route WT	WT for Internal Routing
+	X	ROUTE	A	Route Name (Identification)	/SCWM/CORE	SAP	08.04.2016	TRANSP	   143		/SCMB/DE_ROUTE_ID	/SCMB/DO_ID				X	/SCMB/DE_ROUTE_ID			CHAR	    10	     10				Route	Route	Route	Route
+	X	RTEXT	A	Text exists in document reference	/SCWM/CORE	SAP	08.04.2016	TRANSP	   144		/SCWM/DE_RTEXT	XFELD			X					CHAR	     1	      1				Text exists in document reference	Text	Doc. Ref. Text	Doc. Ref. Text
+	X	WHCOUNT	A	Count Request	/SCWM/CORE	SAP	08.04.2016	TRANSP	   145		/SCWM/DL_WHCOUNTFLG	BOOLE			X	X				CHAR	     1	      1				Count Request	Count Req.	Count Request	Count Request
+	X	GR_OPEN	A	Goods receipt not yet posted	/SCWM/CORE	SAP	08.04.2016	TRANSP	   146		/SCWM/DE_GR_OPEN	XFELD			X					CHAR	     1	      1				GR Open	GR Open	GR Open	Goods receipt not yet posted
+	X	NOITM	A	Current Number of Confirmed Items for WT	/SCWM/CORE	SAP	08.04.2016	TRANSP	   147		/SCWM/LTAK_CNTPS	/SCWM/TAPOS								NUMC	     4	      4					No.of Itms	Number of Items	Number of Items
+	X	STR_REPL	A	Replenishment Strategy	/SCWM/CORE	SAP	08.04.2016	TRANSP	   148		/SCWM/DE_STR_REPL	/SCWM/DO_STR_REPL			X	X				CHAR	     1	      1				Repl.Stra.	Repl.Stra.	Repl. Strat.	Repl. Strategy
+	X	PICK_COMP_DT	A	Planned Closing Date/Time	/SCWM/CORE	SAP	08.04.2016	TRANSP	   149		/SCWM/DE_TOCOMPL_DT	TZNTSTMPS								DEC	    15	     19				Planned Closing Time	Completion	Planned Closing Time	Planned Closing Date/Time
+	X	WKLID	A	Workload Identification	/SCWM/CORE	SAP	08.04.2016	TRANSP	   150		/SCWM/DE_WKLID	/SCWM/DO_WKLID								NUMC	    12	     12				Workload Identification	Wrkld ID	Workload ID	Workload ID
+	X	TOLOGNO	A	Warehouse Task: Log Number	/SCWM/CORE	SAP	08.04.2016	TRANSP	   151		/SCWM/DE_TOLOGNO	/SCWM/DO_TOLOGNO								CHAR	    16	     16				Log No.	Log No.	Log Number	Log number
+	X	DIFFSRC	A	Differences Only Allowed in Source Bin	/SCWM/CORE	SAP	08.04.2016	TRANSP	   152		/SCWM/DE_DIFFSRC	XFELD			X					CHAR	     1	      1				DS	DS	Diff. Source Bin	Differences Only in Source Bin
+	X	AREAWHO	A	Warehouse Order Activity Area	/SCWM/CORE	SAP	08.04.2016	TRANSP	   154		/SCWM/DE_WHOAA	/SCWM/DO_WHOAA								CHAR	     4	      4				Activity Area	WO ActArea	WO Activty Area	WO Activity Area
+	X	WCR	A	Warehouse Order Creation Rule	/SCWM/CORE	SAP	31.01.2018	TRANSP	   155		/SCWM/DE_WCR	/SCWM/DO_WCR		*			/SCWM/WCRR			CHAR	     4	      4				Warehouse Order Creation Rule	WO Cr. Rle	WO Creatn Rule	WO Creation Rule
+	X	PATHSEQ	A	Sort Sequence	/SCWM/CORE	SAP	08.04.2016	TRANSP	   156		/SCWM/DE_SORT									DEC	    10	     13				Sort Seq.	Sort Seq.	Sort Sequence	Sort Sequence
+	X	HUTYPGRP	A	Handling Unit Type Group	/SCWM/CORE	SAP	06.04.2021	TRANSP	   157		/SCWM/DE_HUTYPGRP									CHAR	     4	      4				HU Gr	HU Ty. Grp	HU Type Group	HU Type Group
+	X	WAVECAT	A	Wave Category	/SCWM/CORE	SAP	05.03.2021	TRANSP	   158		/SCWM/DE_WAVECAT	/SCWM/DO_WAVECAT		*						CHAR	     2	      2				Wave Category	Wave Cat.	Wave Category	Wave Category
+	X	HUID	A	Warehouse Order: Internal HU Identification Number	/SCWM/CORE	SAP	08.04.2016	TRANSP	   159		/SCWM/DE_WHOHUID									RAW	    16	     32				Int. HU ID	Int. HU ID	Int. HU ID	Internal HU ID
+	X	SHIPHUID	A	Warehouse Order: Internal HU Identification Number	/SCWM/CORE	SAP	08.04.2016	TRANSP	   160		/SCWM/DE_WHOHUID									RAW	    16	     32				Int. HU ID	Int. HU ID	Int. HU ID	Internal HU ID
+	X	WHOSEQ	A	Internal Sequence of Warehouse Order	/SCWM/CORE	SAP	08.04.2016	TRANSP	   161		/SCWM/DE_WHOSEQ									FLTP	    16	     22		        16		Sequence	Sequence	Sequence	Sequence
+	X	SQUANT_SET	A	Source Quant Predefined	/SCWM/CORE	SAP	08.04.2016	TRANSP	   162		/SCWM/DE_SQUANT_SET	XFELD			X					CHAR	     1	      1				Src Quant Predefined	QntPredef.	Quant Predefind	Src Quant Predefined
+	X	GUID_STOCK0	A	GUID Stock Item	/SCWM/CORE	SAP	11.06.2015	TRANSP	   163		/LIME/GUID_STOCK									RAW	    16	     32				GUID Stock	GUID Stock	GUID Stock	GUID Stock
+	X	DPUT_GR	A	Distributive Putaway from GR Zone	/SCWM/CORE	SAP	08.04.2016	TRANSP	   164		/SCWM/DE_DPUT_GR	/SCWM/DO_DPUT_GR			X					CHAR	     1	      1				Distributive Putaway from GR Zone	Dist.PA GR	Distr.Putaway frm GR	Distributive Putaway from GR Zone
+	X	CHECK_CAPA	A	Checkbox	/SCWM/CORE	SAP	05.11.1998	TRANSP	   165		XFELD	XFELD			X	X				CHAR	     1	      1
+	X	CWREL	A	Product is a CW Product	/SCWM/CORE	SAP	08.04.2016	TRANSP	   166		/SCWM/DE_CWREL	XFELD			X					CHAR	     1	      1				Product is a CW Product	CW-Relev.	CW-Relevant	CW-Relevant
+	X	CONF_ERROR	A	Error During WT Confirmation	/SCWM/CORE	SAP	08.04.2016	TRANSP	   167		/SCWM/DE_CONF_ERROR	XFELD			X					CHAR	     1	      1				Conf. Error	Error	Conf. Error	Confirmation Error
+	X	ORD_CANCEL	A	Contains Item with Reduced Order	/SCWM/CORE	SAP	24.04.2017	TRANSP	   168		/SCWM/DE_ORD_CANCEL	XFELD			X					CHAR	     1	      1				Contains Item with Reduced Order	Red. Ord.	Contains Red. Order	Contains Item with Reduced Order
+	X	PICK_COMP_DT_WH	A	Planned Closing Date/Time in Warehouse Time Zone	/SCWM/CORE	SAP	24.04.2019	TRANSP	   170		/SCWM/DE_TOCOMPL_DT_WH	/SCWM/DO_TIMESTAMP								DEC	    15	     19				Planned Closing Date/Time in Warehouse Time Zone	Clos. Time	Closing Date/Time	Planned Closing Date/Time

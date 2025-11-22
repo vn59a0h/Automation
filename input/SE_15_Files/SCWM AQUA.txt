@@ -1,0 +1,46 @@
+﻿
+		Table Name	Short Description
+		Table field	Ac	Short Description	Package	Author	Date	Tab.cat.	TabPos	Name of include	Data element	Domain name	Key	Check table	Defaults	Chg	SET/GET Parameter ID	Reference table	Ref. field	Data Type	Length	OutLeng	Lowercase	Dec.Places	Sn	Heading	Short	Medium Field Label	Long field label	L
+
+		/SCWM/AQUA	Available Quantity
+	X	MANDT	A	Client	/SCWM/CORE	SAP	24.08.1995	TRANSP	     1		MANDT	MANDT	X	T000						CLNT	     3	      3				Cl.	Client	Client	Client
+	X	GUID_PARENT	A	Parent GUID	/SCWM/CORE	SAP	11.06.2015	TRANSP	     2		/LIME/GUID_PARENT		X							RAW	    16	     32				Parent GUID	Parent
+	X	GUID_STOCK	A	GUID Stock Item	/SCWM/CORE	SAP	11.06.2015	TRANSP	     3		/LIME/GUID_STOCK		X							RAW	    16	     32				GUID Stock	GUID Stock	GUID Stock	GUID Stock
+	X	LGNUM	A	Warehouse Number/Warehouse Complex	/SCWM/CORE	SAP	08.04.2016	TRANSP	     4		/SCWM/LGNUM	/SCWM/LGNUM		/SCWM/T300		X	/SCWM/LGN			CHAR	     4	      4				WhN	Whse No.	Warehouse No.	Warehouse Number
+	X	LGTYP	A	Storage Type	/SCWM/CORE	SAP	26.11.2018	TRANSP	     5		/SCWM/LGTYP	/SCWM/LGTYP				X	/SCWM/LGT			CHAR	     4	      4				Ty.	Stor. Type	Storage Type	Storage Type
+	X	LGPLA	A	Storage Bin	/SCWM/CORE	SAP	12.06.2023	TRANSP	     6		/SCWM/LGPLA	/SCWM/LGPLA				X	/SCWM/LGP			CHAR	    18	     18				Bin	Bin	Storage Bin	Storage Bin
+	X	RSRC	A	Resource (Means of Transportation or User)	/SCWM/CORE	SAP	08.04.2016	TRANSP	     7		/SCWM/DE_RSRC									CHAR	    18	     18				Resource	Resource	Resource	Resource
+	X	HUIDENT	A	Handling Unit Identification	/SCWM/CORE	SAP	08.04.2016	TRANSP	     8		/SCWM/DE_HUIDENT	/SCWM/DO_HUIDENT				X				CHAR	    20	     20				Handling Unit	HU	Handling Unit	Handling Unit
+	X	TU_NUM	A	Internal Number of Transportation Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	     9		/SCWM/DE_TU_NUM	/SCWM/DO_TU_NUM					/SCWM/TU_NUM			CHAR	    18	     18				Internal TU Number	TU Int	Internal TU No.	Internal Number of Transp. Unit
+	X	FLGMOVE	A	Indicator: Handling Unit is Being Moved (Open HU WT)	/SCWM/CORE	SAP	08.04.2016	TRANSP	    10		/SCWM/FLGMOVE	XFELD			X					CHAR	     1	      1				Open HU WT	Open WT	Open HU WT	Open HU WT
+	X	MATID	A	Product	/SCWM/CORE	SAP	08.04.2016	TRANSP	    12		/SCWM/DE_MATID	/SCMB/MDL_MATID_CE				X				RAW	    16	     40				Product	Product	Product	Product
+	X	BATCHID	A	Batch	/SCWM/CORE	SAP	08.04.2016	TRANSP	    13		/SCWM/DE_BATCHID	/SCWM/DO_BATCHID								RAW	    16	     32				Batch	Batch	Batch	Batch
+	X	CAT	A	Stock Type	/SCWM/CORE	SAP	11.06.2015	TRANSP	    14		/LIME/STOCK_CATEGORY	/LIME/STOCK_CATEGORY								CHAR	     2	      2				Typ	Type		Stock Type
+	X	STOCK_DOCCAT	A	Special Reference Stock Type	/SCWM/CORE	SAP	30.04.2022	TRANSP	    15		/SCWM/DE_STOCK_DOCCAT	/SCWM/DO_STOCK_DOCCAT			X	X				CHAR	     3	      3				Tpe	Type	Type	Type
+	X	STOCK_DOCNO	A	Reference Document for Special Reference Stock	/SCWM/CORE	SAP	30.04.2022	TRANSP	    16		/SCWM/DE_STOCK_DOCNO					X				CHAR	    35	     35				Stock Reference Document	StkRef.Doc	Stk Ref. Doc.	Stock Reference Doc.
+	X	STOCK_ITMNO	A	Sales Order Item for Sales Order Stock	/SCWM/CORE	SAP	01.04.2022	TRANSP	    17		/SCWM/DE_STOCK_ITMNO					X				NUMC	    10	     10				SlsOrd.Itm	SlsOrd.Itm	Sls Order Item	Sales Order Item
+	X	DOCCAT	A	Doc. Category for Doc. Reference and Doc.-Related Stock	/SCWM/CORE	SAP	13.06.2021	TRANSP	    18		/SCWM/DE_DOCCAT	/SCWM/DO_DOCCAT			X					CHAR	     3	      3				Cat	Doc. Cat.	Document Cat.	Document Category
+	X	STOCK_USAGE	A	Stock Usage	/SCWM/CORE	SAP	11.06.2015	TRANSP	    19		/LIME/STOCK_USAGE	/LIME/STOCK_USAGE								CHAR	     1	      1				Use	Usage	Usage	Usage
+	X	OWNER	A	Owner	/SCWM/CORE	SAP	24.04.2017	TRANSP	    20		/SCWM/DE_OWNER	/SCMB/DO_BU_PARTNER								CHAR	    10	     28				Owner	Owner	Owner	Owner
+	X	OWNER_ROLE	A	Partner Role of Owner	/SCWM/CORE	SAP	11.06.2015	TRANSP	    21		/LIME/OWNER_ROLE	/LIME/PARTNER_ROLE			X					CHAR	     2	      2				Role	Role	Partner Role	Partner Role
+	X	ENTITLED	A	Party Entitled to Dispose	/SCWM/CORE	SAP	26.11.2018	TRANSP	    22		/SCWM/DE_ENTITLED	BU_PARTNER				X	/SCWM/ENTITLED			CHAR	    10	     10				Disposal	Disposal	Disposal Party	Party Entitled to Dispose
+	X	ENTITLED_ROLE	A	Partner Role of Party Entitled to Dispose	/SCWM/CORE	SAP	08.04.2016	TRANSP	    23		/SCWM/DE_ENTITLED_ROLE	/SCWM/DO_PARTNER_ROLE			X	X				CHAR	     2	      2				Role	Role	Partner Role	Partner Role
+	X	STOCK_CNT	A	Counter for Stock Separation	/SCWM/CORE	SAP	08.04.2016	TRANSP	    24		/SCWM/DE_STOCK_CNT									NUMC	     6	      6				Count.	Counter	Counter	Counter
+	X	CHARG	A	Batch	/SCWM/CORE	SAP	08.04.2016	TRANSP	    25		/SCWM/DE_CHARG	/SCWM/DO_CHARG								CHAR	    10	     10				Batch	Batch	Batch	Batch
+	X	QUAN	A	Available Quantity	/SCWM/CORE	SAP	08.04.2016	TRANSP	    26		/SCWM/DE_AVLQUAN	/SCWM/DO_QUANTITY						/SCWM/AQUA	UNIT	QUAN	    31	     38		        14	X	Available Quantity	Avail.Qty	Available Quantity	Available Quantity
+	X	UNIT	A	Base Unit of Measure	/SCWM/CORE	SAP	08.04.2016	TRANSP	    27		/SCWM/DE_BASE_UOM	MEINS								UNIT	     3	      3	X			BUn	BUoM	Base Unit	Base Unit of Measure
+	X	ALTME	A	Alternative Unit of Measure for Stockkeeping Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	    28		/SCWM/DE_AUNIT	MEINS								UNIT	     3	      3	X			AUn	Alt. Unit	Alternatve Unit	Alt. Unit of Measure
+	X	VFDAT	A	Shelf Life Expiration Date	/SCWM/CORE	SAP	26.11.2018	TRANSP	    29		/SCWM/SLED	DATUM								DATS	     8	     10				Expiration	Expiration	Expiration Date	Shelf Life Expiration Date
+	X	WDATU	A	Date and Time of Goods Receipt	/SCWM/CORE	SAP	08.04.2016	TRANSP	    30		/SCWM/LVS_WDATU	/SCWM/DO_TIMESTAMP_WH								DEC	    15	     19				GR Date	GR Date	GR Date	GR Date
+	X	INSPTYP	A	Inspection ID Type	/SCWM/CORE	SAP	18.05.2020	TRANSP	    31		/SCWM/DE_INSPIDTYP	/SCWM/DO_INSPIDTYP			X					CHAR	     1	      1				In.ID Ty.	In.ID Type	Insp. ID Type	Inspection ID Type
+	X	INSPID	A	Identification of a Quality Object	/SCWM/CORE	SAP	08.04.2016	TRANSP	    32		/SCWM/DE_INSPID									RAW	    16	     32				Inspection Object	Insp. Obj.	Inspection Obj.	Inspection Object
+	X	COO	A	Country/Region of Origin	/SCWM/CORE	SAP	19.11.2020	TRANSP	    33		/SCWM/DE_COO	LAND1				X				CHAR	     3	      3				Origin	Origin	C/R of Orig.	Ctry/Reg. of Origin
+	X	OUTCON	A	Storage Bin Improvable	/SCWM/CORE	SAP	26.11.2018	TRANSP	    34		/SCWM/DE_OUTCON	/SCWM/DO_OUTCON			X	X				CHAR	     1	      1				Bin Impr	Bin Impr.	Bin Improvable	Storage Bin Improvable
+	X	SKZSI	A	Blocking Indicator: Current Inventory (System)	/SCWM/CORE	SAP	08.04.2016	TRANSP	    35		/SCWM/LQUA_SKZSI	XFELD			X					CHAR	     1	      1				IA	Inv.Active	Inventory Act.	Inventory Active
+	X	READ_QUANTS	A	Read Quants for Stock Removal	/SCWM/CORE	SAP	08.04.2016	TRANSP	    36		/SCWM/DE_READ_QUANTS	XFELD			X					CHAR	     1	      1				Q	Q	Read Quants	Read Quants for Stock Removal
+	X	BRESTR	A	Batch in Restricted-Use Stock	/SCWM/CORE	SAP	08.04.2016	TRANSP	    37		/SCMB/MDL_DZUSTD	XFELD			X					CHAR	     1	      1				RU	Restr.-use	Restricted-use	Batch in restr.-use
+	X	LOGPOS	A	Logical Position of Handling Unit	/SCWM/CORE	SAP	08.04.2016	TRANSP	    38		/SCWM/DE_LOGPOS									CHAR	     2	      2				Log.Pos	Log.Pos	Logical Pos.	Logical Position
+	X	DUMMY_FIELD	A	Dummy function in length 1	/SCWM/CORE	SAP	10.03.1992	TRANSP	    40		DUMMY	DUMMY								CHAR	     1	      1
+	X	ZEUGN	A	Certificate Number	/SCWM/CORE	SAP	08.04.2016	TRANSP	    41		/SCWM/LVS_ZEUGN	/SCWM/LVS_ZEUGN								CHAR	    10	     10				Cert. No.	Cert. No.	Cert. No.	Certificate Number
+	X	AQUA_PS_DUMMY	A	Dummy function in length 1	/SCWM/CORE	SAP	10.03.1992	TRANSP	    43		DUMMY	DUMMY								CHAR	     1	      1
+	X	STK_SEG_LONG	A	Stock Segment	/SCWM/CORE	SAP	01.04.2022	TRANSP	    44		/SCWM/STK_SEG_LONG	/SCWM/STK_SEG_LONG				X				CHAR	    40	     40				Stock Segment	Stock Seg.	Stock Segment	Stock Segment

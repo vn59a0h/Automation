@@ -1,0 +1,25 @@
+﻿
+		Table Name	Short Description
+		Table field	Ac	Short Description	Package	Author	Date	Tab.cat.	TabPos	Name of include	Data element	Domain name	Key	Check table	Defaults	Chg	SET/GET Parameter ID	Reference table	Ref. field	Data Type	Length	OutLeng	Lowercase	Dec.Places	Sn	Heading	Short	Medium Field Label	Long field label	L
+
+		/SCWM/TDOOR	Door Definition with Assignment to Staging Areas and Yard
+	X	MANDT	A	Client	/SCWM/SHP_RCV_CORE	SAP	24.08.1995	TRANSP	     1		MANDT	MANDT	X							CLNT	     3	      3				Cl.	Client	Client	Client
+	X	LGNUM	A	Warehouse Number/Warehouse Complex	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     2		/SCWM/LGNUM	/SCWM/LGNUM	X	/SCWM/T300		X	/SCWM/LGN			CHAR	     4	      4				WhN	Whse No.	Warehouse No.	Warehouse Number
+	X	DOOR	A	Warehouse Door	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     3		/SCWM/DE_DOOR	/SCWM/DO_DOOR	X			X	/SCWM/DOOR			CHAR	     4	      4				Warehouse Door	Whse Door	Warehouse Door	Warehouse Door
+	X	DOOR_BIN	A	Storage Bin	/SCWM/SHP_RCV_CORE	SAP	12.06.2023	TRANSP	     4		/SCWM/LGPLA	/SCWM/LGPLA		/SCWM/LAGP		X	/SCWM/LGP			CHAR	    18	     18				Bin	Bin	Storage Bin	Storage Bin
+	X	LOAD_DIR	A	Loading Direction of Warehouse Door	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     5		/SCWM/DE_DOOR_LOAD_DIR	/SCWM/DO_DOOR_LOAD_DIR			X					CHAR	     1	      1				Loading Direction of Door	Load.Dir.	Loading Direction	Loading Direction of Door
+	X	PPF_ACT_PROFILE	A	PPF: Name of Action Profile	/SCWM/SHP_RCV_CORE	SAP	04.12.2000	TRANSP	     6		PPFDCNTXT	PPFDCNTXT								CHAR	    30	     30				Action Profile	Profile	Action Profile	Action Profile
+	X	STAREA_GR_DEF	A	Default Staging Area Group	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     7		/SCWM/DE_STAREA_GR_DEF	/SCWM/LGTYP		/SCWM/T301						CHAR	     4	      4				Default Staging Area Group	DfStgArGrp	DeftStagingAreaGrp	Default Staging Area Group
+	X	NR_RANGE	A	Number Range Number	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     8		/SCWM/DE_NR_RANGE	CHAR2				X				CHAR	     2	      2				Number Range Number	NRNo	No. Range No.	Number Range Number
+	X	STAREA_DEF	A	Default Staging Area	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     9		/SCWM/DE_STAREA_DEF	/SCWM/LGBER		/SCWM/TSTAREA						CHAR	     4	      4				Default Staging Area	DfStgAre	Default Stag. Area	Default Staging Area
+	X	MTR_DEF	A	Default Means of Transport	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	    10		/SCWM/DE_MTR_DEF	/SCMB/MDL_TTYPE								CHAR	    10	     10				Default Means of Transport	Def. MTr	Def. Means of Trans.	Default Means of Transport
+	X	SC_UNIT	A	Supply Chain Unit: Door	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	    11		/SCMB/SCU_DOOR	/SCMB/OE_ENTITY								CHAR	    20	     20				Supply Chain Unit:Door	SCU: Door	SCU: Door	Supply Chain Unit:Door
+	X	SCUGUID	A	Supply Chain Unit GUID	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	    12		/SCMB/MDL_SCUGUID	SYSUUID								RAW	    16	     32				Supply Chain Unit GUID	SC Un GUID	SC Unit GUID	SC Unit GUID
+	X	SC_UNIT_LP	A	Loading Point	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	    13		/SCWM/DE_DSLOADPLOCTD	/SCMB/OE_ENTITY								CHAR	    20	     20				Loading Point	Loading Pt	Loading Point	Loading Point
+	X	SCUGUID_LP	A	Supply Chain Unit GUID	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	    14		/SCMB/MDL_SCUGUID	SYSUUID								RAW	    16	     32				Supply Chain Unit GUID	SC Un GUID	SC Unit GUID	SC Unit GUID
+	X	ROUTE_PROP	A	Route Name (Identification)	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	    15		/SCMB/DE_ROUTE_ID	/SCMB/DO_ID				X	/SCMB/DE_ROUTE_ID			CHAR	    10	     10				Route	Route	Route	Route
+	X	YARD_LGNUM	A	Warehouse Number for Yard	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	    16		/SCWM/DE_YARD_LGNUM	/SCWM/LGNUM					/SCWM/YLGN			CHAR	     4	      4				Warehouse Number for Yard	YrdWhseNo.	Yard Warehouse No.	Warehouse Number for Yard
+	X	YARD_DOOR_BIN	A	Yard Bin	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	    17		/SCWM/DE_YARD_LGPLA	/SCWM/LGPLA		/SCWM/LAGP		X	/SCWM/LGP			CHAR	    18	     18				Yard Bin	Yard Bin	Yard Bin	Yard Bin
+	X	YARD_LGTYP	A	Yard Type	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	    18		/SCWM/DE_YARD_LGTYP	/SCWM/LGTYP				X	/SCWM/LGT			CHAR	     4	      4				Yard Type	Yard Type	Yard Type	Yard Type
+	X	YARD_LGBER	A	Yard Section	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	    19		/SCWM/DE_YARD_LGBER									CHAR	     4	      4				Yard Section	Yard Sect.	Yard Section	Yard Section
+	X	/SCWM/DOOR_HEAD	A	Dummy function in length 1	/SCWM/SHP_RCV_CORE	SAP	10.03.1992	TRANSP	    21		DUMMY	DUMMY								CHAR	     1	      1

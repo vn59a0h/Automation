@@ -1,0 +1,22 @@
+﻿
+		Table Name	Short Description
+		Table field	Ac	Short Description	Package	Author	Date	Tab.cat.	TabPos	Name of include	Data element	Domain name	Key	Check table	Defaults	Chg	SET/GET Parameter ID	Reference table	Ref. field	Data Type	Length	OutLeng	Lowercase	Dec.Places	Sn	Heading	Short	Medium Field Label	Long field label	L
+
+		/SCWM/BINMAT	Assignment Table for Fixed Bins - Product
+	X	MANDT	A	Client	/SCWM/CORE	SAP	24.08.1995	TRANSP	     1		MANDT	MANDT	X							CLNT	     3	      3				Cl.	Client	Client	Client
+	X	LGNUM	A	Warehouse Number/Warehouse Complex	/SCWM/CORE	SAP	08.04.2016	TRANSP	     2		/SCWM/LGNUM	/SCWM/LGNUM	X	/SCWM/T300		X	/SCWM/LGN			CHAR	     4	      4				WhN	Whse No.	Warehouse No.	Warehouse Number
+	X	MATID	A	Product	/SCWM/CORE	SAP	08.04.2016	TRANSP	     3		/SCWM/DE_MATID	/SCMB/MDL_MATID_CE	X			X				RAW	    16	     40				Product	Product	Product	Product
+	X	ENTITLED	A	Party Entitled to Dispose	/SCWM/CORE	SAP	26.11.2018	TRANSP	     4		/SCWM/DE_ENTITLED	BU_PARTNER	X	BUT000		X	/SCWM/ENTITLED			CHAR	    10	     10				Disposal	Disposal	Disposal Party	Party Entitled to Dispose
+	X	LGPLA	A	Storage Bin	/SCWM/CORE	SAP	19.10.2023	TRANSP	     5		/SCWM/LGPLA	/SCWM/LGPLA	X	/SCWM/LAGP		X	/SCWM/LGP			CHAR	    18	     18				Bin	Bin	Storage Bin	Storage Bin
+	X	LGTYP	A	Storage Type	/SCWM/CORE	SAP	26.11.2018	TRANSP	     6		/SCWM/LGTYP	/SCWM/LGTYP				X	/SCWM/LGT			CHAR	     4	      4				Ty.	Stor. Type	Storage Type	Storage Type
+	X	OUTCON	A	Storage Bin Improvable	/SCWM/CORE	SAP	26.11.2018	TRANSP	     7		/SCWM/DE_OUTCON	/SCWM/DO_OUTCON			X	X				CHAR	     1	      1				Bin Impr	Bin Impr.	Bin Improvable	Storage Bin Improvable
+	X	DATOUT	A	"Storage Bin Improvable" Changed On	/SCWM/CORE	SAP	08.04.2016	TRANSP	     8		/SCWM/DE_DATOUT	DATUM								DATS	     8	     10				Changed On	Changed On	Changed On	Changed On
+	X	MAXQTY	A	Maximum Quantity	/SCWM/CORE	SAP	08.04.2016	TRANSP	     9		/SCWM/DE_MAXQTY	/SCWM/DO_QUAN15				X		T006	MSEHI	QUAN	    15	     20		         3	X	Max.Qty	Max.Qty	Maximum Qty	Maximum Quantity
+	X	MAXQTY_UOM_DSP	A	Display Unit of Measure for Maximum Quantity	/SCWM/CORE	SAP	19.10.2023	TRANSP	    10		/SCWM/DE_MAXQTY_UOM_DSP	MEINS				X				UNIT	     3	      3	X			Display UoM	DisplayUoM	DsplyUoMMax.Qty	Display UoM Max. Qty
+	X	MINQTY	A	Minimum Quantity	/SCWM/CORE	SAP	08.04.2016	TRANSP	    11		/SCWM/DE_MINQTY	/SCWM/DO_QUAN15				X		T006	MSEHI	QUAN	    15	     20		         3	X	Min. Qty	Min. Qty	Minimum Qty	Minimum Quantity
+	X	MINQTY_UOM_DSP	A	Display Unit of Measure for Minimum Quantity	/SCWM/CORE	SAP	19.10.2023	TRANSP	    12		/SCWM/DE_MINQTY_UOM_DSP	MEINS				X				UNIT	     3	      3	X			Display UoM	DisplayUoM	DsplyUoMMin.Qty	Display UoM Min. Qty
+	X	MATNR	A	Product	/SCWM/CORE	SAP	08.04.2016	TRANSP	    13		/SCWM/DE_MATNR	/SCMB/MDL_PRODUCT_NO								CHAR	    40	     40				Product	Product	Product	Product
+	X	RMMQTY_FIX	A	Minimum/Maximum/Replenishment Quantity Fixed	/SCWM/CORE	SAP	08.04.2016	TRANSP	    14		/SCWM/DE_RMMQTY_FIX	XFELD			X	X				CHAR	     1	      1				Fixed	Fixed	Qties Fixed	Quantities Fixed
+	X	CREATED_AT	A	Creation Time	/SCWM/CORE	SAP	08.04.2016	TRANSP	    15		/SCWM/DE_CREATED_DT	/SCWM/DO_TIMESTAMP_WH								DEC	    15	     19				Creation Time	CreatnTime	Creation Time	Creation Time
+	X	CREATED_BY	A	Created By	/SCWM/CORE	SAP	08.04.2016	TRANSP	    16		/SCWM/DE_CREATOR	UNAME								CHAR	    12	     12				Created By	Created By	Created By	Created By
+	X	IMPROV_FIX	A	Storage Bin Improvable Fixed	/SCWM/CORE	SAP	08.04.2016	TRANSP	    17		/SCWM/DE_STBIN_IMPROV_FIX	XFELD			X	X				CHAR	     1	      1				STBinImp Fixed	Impr Fix	Impr Fixed	Bin Improvable Fixed

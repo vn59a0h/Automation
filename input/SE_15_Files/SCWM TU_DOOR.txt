@@ -1,0 +1,13 @@
+﻿
+		Table Name	Short Description
+		Table field	Ac	Short Description	Package	Author	Date	Tab.cat.	TabPos	Name of include	Data element	Domain name	Key	Check table	Defaults	Chg	SET/GET Parameter ID	Reference table	Ref. field	Data Type	Length	OutLeng	Lowercase	Dec.Places	Sn	Heading	Short	Medium Field Label	Long field label	L
+
+		/SCWM/TU_DOOR	Assign Transport Units to Doors
+	X	MANDT	A	Client	/SCWM/SHP_RCV_CORE	SAP	24.08.1995	TRANSP	     1		MANDT	MANDT	X							CLNT	     3	      3				Cl.	Client	Client	Client
+	X	TU_NUM	A	Internal Number of Transportation Unit	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     3		/SCWM/DE_TU_NUM	/SCWM/DO_TU_NUM	X				/SCWM/TU_NUM			CHAR	    18	     18				Internal TU Number	TU Int	Internal TU No.	Internal Number of Transp. Unit
+	X	TU_SR_ACT_NUM	A	Shipping and Receiving Activity Number: Transportation Unit	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     4		/SCWM/DE_TU_SR_ACT_NUM	/SCWM/DO_SR_ACT_NUM	X							NUMC	    10	     10				S&R ActyTU	S&R ActyTU	S&R Acty: TU	S&R Activity Number: TU
+	X	LGNUM	A	Warehouse Number/Warehouse Complex	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     6		/SCWM/LGNUM	/SCWM/LGNUM	X			X	/SCWM/LGN			CHAR	     4	      4				WhN	Whse No.	Warehouse No.	Warehouse Number
+	X	DOOR	A	Warehouse Door	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     7		/SCWM/DE_DOOR	/SCWM/DO_DOOR	X	*		X	/SCWM/DOOR			CHAR	     4	      4				Warehouse Door	Whse Door	Warehouse Door	Warehouse Door
+	X	DOOR_SR_ACT_NUM	A	Shipping and Receiving Activity Number: Door	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     8		/SCWM/DE_DOOR_SR_ACT_NUM	/SCWM/DO_SR_ACT_NUM	X							NUMC	    10	     10				S&R ActyDr	S&R ActyDr	S&R Acty: Door	S&R Activity Number: Door
+	X	START_ACTUAL	A	Actual Start Time Stamp for TU/Door Assignment	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	     9		/SCWM/DE_ASS_TU_DOOR_START	TZNTSTMPS								DEC	    15	     19				Start Time Stamp for TU/Door Assignment	Start Time	Start Time Stamp	Start Time Stamp for TU/Door Assignment
+	X	END_ACTUAL	A	Actual End Time Stamp for TU/Door Assignment	/SCWM/SHP_RCV_CORE	SAP	08.04.2016	TRANSP	    10		/SCWM/DE_ASS_TU_DOOR_END	TZNTSTMPS								DEC	    15	     19				End Time Stamp for TU/Door Assignment	End Time	End Time Stamp	End Time Stamp for TU/Door Assignment

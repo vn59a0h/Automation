@@ -1,0 +1,15 @@
+﻿
+		Table Name	Short Description
+		Table field	Ac	Short Description	Package	Author	Date	Tab.cat.	TabPos	Name of include	Data element	Domain name	Key	Check table	Defaults	Chg	SET/GET Parameter ID	Reference table	Ref. field	Data Type	Length	OutLeng	Lowercase	Dec.Places	Sn	Heading	Short	Medium Field Label	Long field label	L
+
+		/SCDL/DB_STATUS	Status
+	X	MANDT	A	Client	/SCDL/DATA_MODEL	SAP	24.08.1995	TRANSP	     3		MANDT	MANDT	X	*						CLNT	     3	      3				Cl.	Client	Client	Client
+	X	DOCID	A	Document ID	/SCDL/DATA_MODEL	SAP	08.04.2016	TRANSP	     4		/SCDL/DL_DOCID	/SCDL/DL_DOCID	X							RAW	    16	     32				Document ID	Doc.ID	Document ID	Document ID
+	X	ITEMID	A	Item ID	/SCDL/DATA_MODEL	SAP	08.04.2016	TRANSP	     5		/SCDL/DL_ITEMID	/SCDL/DL_ITEMID	X							RAW	    16	     32				Item ID	Item ID	Item ID	Item ID
+	X	STATUS_TYPE	A	Status Type	/SCDL/DATA_MODEL	SAP	08.04.2016	TRANSP	     7		/SCDL/DL_STATUS_TYPE	/SCDL/DL_STATUS_TYPE	X							CHAR	     5	      5				Status Type	StatusType	Status Type	Status Type
+	X	DOCCAT	A	Document Category	/SCDL/DATA_MODEL	SAP	08.04.2016	TRANSP	     9		/SCDL/DL_DOCCAT	/SCDL/DL_DOCCAT				X	/SCDL/DL_DOCCAT			CHAR	     3	      3				Document Category	Doc. Cat.	Doc. Category	Document Category
+	X	STATUS_VALUE	A	Status Value	/SCDL/DATA_MODEL	SAP	08.04.2016	TRANSP	    11		/SCDL/DL_STATUS_VALUE	/SCDL/DL_STATUS_VALUE				X				CHAR	     1	      1				Status Value	Stat. Val.	Status Value	Status Value
+	X	TZONE	A	Time Zone	/SCDL/DATA_MODEL	SAP	08.04.2016	TRANSP	    13		/SCDL/DL_TZONE	TZNZONE		*		X				CHAR	     6	      6				Time Zone	Time Zone	Time Zone	Time Zone
+	X	TSTFR	A	Started On	/SCDL/DATA_MODEL	SAP	15.01.2020	TRANSP	    14		/SCDL/DL_TSTFR	/SCDL/DL_TZNTSTMPS				X				DEC	    15	     19				Started On	Started On	Started On	Started On
+	X	TSTTO	A	End Date/Time	/SCDL/DATA_MODEL	SAP	08.04.2016	TRANSP	    15		/SCDL/DL_TSTTO	/SCDL/DL_TZNTSTMPS				X				DEC	    15	     19				End Date/Time	End	End Date/Time	End Date/Time
+	X	CHGUSR	A	Changed By	/SCDL/DATA_MODEL	SAP	08.04.2016	TRANSP	    16		/SCDL/DL_CHGUSR	XUBNAME		*						CHAR	    12	     12				Changed By	Changed By	Changed By	Changed By
