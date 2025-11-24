@@ -57,6 +57,7 @@ def create_bucket_row(row, env='dev'):
     
     # Generate service account based on sensitivity and environment
     service_account = f"svc-dl-sa-afaas-{sensitivity}@wmt-intl-dl-sa-{sensitivity}-{env}.iam.gserviceaccount.com"
+    service_account_2 = f"svc-dl-sa-afaas-{sensitivity}@wmt-intl-dl-sa-{sensitivity}-{env}.iam.gserviceaccount.com | gcp-intl-cons-bq-sa-ns-read"
     
     # Get load type and format for refresh mode
     load_type = str(row.get('tableLoadType', 'inc')).strip().upper()
@@ -76,7 +77,7 @@ def create_bucket_row(row, env='dev'):
         'opCmpnyCd': op_cmpny_cd,
         'refreshMode': refresh_mode,
         'wmt.storage_uploader': service_account,
-        'wmt.storage_viewer': service_account,
+        'wmt.storage_viewer': service_account_2,
         'isDevBigLake': 'FALSE',
         'updateSoftDelete': 'DCA Logic',
         'resourceBucketType': ''
