@@ -25,7 +25,7 @@ from airflow.operators.empty import EmptyOperator
 
 SENSITIVITY="SE"
 PRIORITY="P2"
-TAGS = ["Massmart-eComm", "P2", "Ephemeral", "SA", "SECURE", "MDSE", "massmart", "mm_db_data_acrcy", "SLT"]
+TAGS = ["Massmart-eComm", "P2", "Ephemeral", "SA", "SECURE", "MDSE", "massmart", "mm_db_data_acrcy", "EWM", "SLT"]
 CLUSTER_NAME = "sa-supply-chain-dl-secure-mm-db-data-acrcy"
 ARTIFACTORY_URL = Variable.get("ARTIFACTORY_URL")
 BANNER_NAME="massmart"

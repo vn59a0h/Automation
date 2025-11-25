@@ -16,7 +16,8 @@
     "COUNTED_QTY": "cnt_qty",
     "CUOM": "cnt_unit_meas",
     "DIFFERENCE": "diff",
-    "DUOM": "diff_unit_meas"
+    "DUOM": "diff_unit_meas",
+    "DS_LOAD_START_TS": "ds_load_ts"
   },
   "dataSensitivity": "se",
   "dlSchemaName": "sa_supply_chain_dl_secure",
