@@ -40,7 +40,7 @@ def add_full_banner_name(row):
 
 def add_tags(row):
     market = 'SA'
-    return ['Massmart-eComm', "P2", 'Ephemeral',f"{market}", 'SECURE', 'MDSE', f"{row.full_banner_name}", f"{row.table_name}", 'SLT']
+    return ['Massmart-eComm', "P2", 'Ephemeral',f"{market}", f"{row.full_banner_name.upper()}", f"{row.table_name}",'SLT','EWM']
 
 def add_derived_columns(df: pd.DataFrame) -> pd.DataFrame:
     """Add all derived columns to the dataframe with explicit copy."""

@@ -2,7 +2,11 @@
 """
 SE15 File Parser
 Parses SAP SE15 table definition files and creates a single JSON file with all table metadata.
-Includes automated abbreviation generation and data sensitivity classification.
+
+This version is intentionally simple:
+- No NLP
+- No "smart" renaming of columns
+- Column names are taken directly from the SE15 file and never changed.
 """
 
 import os
@@ -11,7 +15,7 @@ import re
 from pathlib import Path
 from typing import List, Dict, Tuple
 
-# Import abbreviation generator
+# Optional: Abbreviator can be used later, but this parser does NOT rename columns.
 try:
     from abbreviator import Abbreviator
     ABBREV_AVAILABLE = True
@@ -28,146 +32,215 @@ def clean_table_name(table_name: str) -> str:
     """
     Clean table name by removing leading forward slashes and replacing
     internal forward slashes with underscores.
-    
+
     Examples:
         "/SCDL/DB_PROCI_I" -> "SCDL_DB_PROCI_I"
-        "/SCWM/AQUA" -> "SCWM_AQUA"
-        "BUT000" -> "BUT000"
-    
-    Args:
-        table_name: Original table name from SE15 file
-        
-    Returns:
-        Cleaned table name
+        "/SCWM/AQUA"       -> "SCWM_AQUA"
+        "BUT000"           -> "BUT000"
     """
     if not table_name:
         return table_name
-    
-    # Remove leading forward slash
+
+    # Remove leading forward slash(es)
     cleaned = table_name.lstrip('/')
-    
+
     # Replace remaining forward slashes with underscores
     cleaned = cleaned.replace('/', '_')
-    
+
     return cleaned
 
+
+import re
+from typing import Dict, Tuple, List
 
 def parse_se15_file(file_path: str) -> Tuple[Dict, Dict[str, any]]:
     """
     Parse a single SE15 .txt file and extract table and column metadata.
-    
-    This parser is designed to work with ANY SE15 export file that follows
-    the standard SAP SE15 tab-delimited format with:
-    - Table name and description on a dedicated line
-    - Column rows marked with 'X' in the second tab-delimited field
-    - Standard column positions for metadata (name, description, key, type, length)
-    
-    Args:
-        file_path: Path to the SE15 .txt file
-        
-    Returns:
-        Tuple of (Table dictionary with nested columns, metadata dict with stats)
+
+    This version is tailored to SE15 exports like:
+
+        [header]    Table Name       Short Description
+        [header]    Table field  Ac  Short Description  ...  Data Type  Length ...
+        [row]       /SCDL/DB_DATE    Date
+        [row]   X   MANDT       A    Client            ...  CLNT       3   ...
+
+    - Uses the "Table Name" header row to find the table line.
+    - Uses the "Table field" header row to find column positions.
+    - Lines with 'X' in column 1 are column rows.
+    - No NLP, no renaming; column_name is exactly as in the file.
     """
     try:
-        # Read the file with tab delimiter (handles Windows BOM)
-        with open(file_path, 'r', encoding='utf-8-sig') as f:
+        with open(file_path, "r", encoding="utf-8-sig") as f:
             lines = f.readlines()
-        
+
         if not lines:
-            return None, {'error': 'File is empty'}
-        
-        # Find the line with table name and description
-        # Generic approach: looks for first non-header line with valid table format
+            return None, {"error": "File is empty"}
+
+        # ---------------------- 1. Find table header row ---------------------- #
+        table_header_idx = None
+        t_name_idx = None
+        t_desc_idx = None
+
+        for i, line in enumerate(lines):
+            parts = line.rstrip("\r\n").split("\t")
+            stripped = [p.strip() for p in parts]
+
+            if "Table Name" in stripped and "Short Description" in stripped:
+                table_header_idx = i
+                t_name_idx = stripped.index("Table Name")
+                t_desc_idx = stripped.index("Short Description")
+                break
+
+        if table_header_idx is None:
+            return None, {"error": "Could not find 'Table Name' header row"}
+
+        # ---------------------- 2. Find table data row ------------------------ #
         table_name = None
         table_description = None
-        table_line_idx = None
-        
-        for idx, line in enumerate(lines):
-            parts = [p.strip() for p in line.split('\t') if p.strip()]
-            # Look for a line with 2 parts where first doesn't contain common header keywords
-            if len(parts) >= 2 and parts[0] not in ['Table Name', 'Table field']:
-                # Check if this looks like a table definition (not a column starting with X)
-                if parts[0] != 'X' and not parts[0].startswith('/') or '/' in parts[0]:
-                    table_name = parts[0]
-                    table_description = parts[1] if len(parts) > 1 else ''
-                    table_line_idx = idx
-                    break
-        
+
+        for i in range(table_header_idx + 1, len(lines)):
+            parts = lines[i].rstrip("\r\n").split("\t")
+            # Need at least up to t_name_idx and t_desc_idx
+            if len(parts) <= max(t_name_idx, t_desc_idx):
+                continue
+
+            name_candidate = parts[t_name_idx].strip()
+            desc_candidate = parts[t_desc_idx].strip() if len(parts) > t_desc_idx else ""
+
+            if not name_candidate:
+                continue
+
+            # Skip if this line is just another header / junk
+            if name_candidate in ("Table Name", "Table field"):
+                continue
+
+            table_name = name_candidate
+            table_description = desc_candidate
+            table_line_idx = i
+            break
+
         if not table_name:
-            return None, {'error': 'Could not find table name in file'}
-        
-        # Clean the table name (remove leading slashes, replace internal slashes)
+            return None, {"error": "Could not find table name in file"}
+
+        # Clean table name like your original helper
         original_table_name = table_name
         table_name = clean_table_name(table_name)
-        
-        # Parse column rows (lines starting with 'X' in first non-empty column)
-        # Generic approach: handles any number of columns with standard SE15 positions
-        columns = []
-        for line in lines[table_line_idx + 1:]:  # Start after table definition line
-            # Don't strip leading tabs - preserve column positions
-            parts = line.rstrip('\r\n').split('\t')
-            
-            # Check if this is a column row (has 'X' in the expected position)
-            # The line starts with a tab, so X is at index 1
-            if len(parts) > 1 and parts[1].strip() == 'X':
-                # Extract column details using standard SE15 field positions
-                # These positions are consistent across all SE15 exports
-                column_name = parts[2].strip() if len(parts) > 2 else ''
-                column_description = parts[4].strip() if len(parts) > 4 else ''
-                is_primary_key = (parts[13].strip() == 'X') if len(parts) > 13 else False
-                data_type = parts[20].strip() if len(parts) > 20 else ''
-                length = parts[21].strip() if len(parts) > 21 else ''
-                
-                # Only add if we have at least a column name
-                if column_name:
-                    columns.append({
-                        'column_name': column_name,
-                        'column_abbrev': '',
-                        'sensitivity_level': '',  # Will be populated later
-                        'description': column_description,
-                        'is_primary_key': is_primary_key,
-                        'data_type': data_type,
-                        'length': length
-                    })
-        
+
+        # ---------------------- 3. Find column header row --------------------- #
+        col_header_idx = None
+        idx_field_name = None
+        idx_short_desc = None
+        idx_key = None
+        idx_data_type = None
+        idx_length = None
+
+        for i, line in enumerate(lines):
+            parts = line.rstrip("\r\n").split("\t")
+            stripped = [p.strip() for p in parts]
+
+            if "Table field" in stripped and "Short Description" in stripped:
+                col_header_idx = i
+                idx_field_name = stripped.index("Table field")
+                idx_short_desc = stripped.index("Short Description")
+                # Optional fields (defensive)
+                if "Key" in stripped:
+                    idx_key = stripped.index("Key")
+                if "Data Type" in stripped:
+                    idx_data_type = stripped.index("Data Type")
+                if "Length" in stripped:
+                    idx_length = stripped.index("Length")
+                break
+
+        if col_header_idx is None:
+            return None, {"error": "Could not find 'Table field' header row"}
+
+        # ---------------------- 4. Parse column rows -------------------------- #
+        columns: List[Dict[str, any]] = []
+
+        # Column rows start after the column header row
+        for line in lines[col_header_idx + 1:]:
+            parts = line.rstrip("\r\n").split("\t")
+            if not parts:
+                continue
+
+            # Your sample: column rows look like:
+            #   ""  "X"  "MANDT"  "A"  "Client"  ...
+            # So we require 'X' in column 1.
+            if len(parts) < 2 or parts[1].strip() != "X":
+                continue
+
+            # Need field name
+            if idx_field_name is None or idx_field_name >= len(parts):
+                continue
+
+            column_name = parts[idx_field_name].strip()
+            if not column_name:
+                continue
+
+            # IMPORTANT: never change the column_name (no mapping, no NLP)
+            column_description = (
+                parts[idx_short_desc].strip()
+                if idx_short_desc is not None and idx_short_desc < len(parts)
+                else ""
+            )
+
+            is_primary_key = False
+            if idx_key is not None and idx_key < len(parts):
+                is_primary_key = (parts[idx_key].strip() == "X")
+
+            data_type = ""
+            if idx_data_type is not None and idx_data_type < len(parts):
+                data_type = parts[idx_data_type].strip()
+
+            length = ""
+            if idx_length is not None and idx_length < len(parts):
+                length = parts[idx_length].strip()
+
+            columns.append(
+                {
+                    "column_name": column_name,     # EXACTLY from file
+                    "column_abbrev": "",            # can be filled later
+                    "sensitivity_level": "",        # can be filled later
+                    "description": column_description,
+                    "is_primary_key": is_primary_key,
+                    "data_type": data_type,
+                    "length": length,
+                }
+            )
+
         if not columns:
-            return None, {'error': f'No columns found for table {table_name}'}
-        
-        # Return table with nested columns structure
+            return None, {"error": f"No columns found for table {table_name}"}
+
         table = {
-            'table_name': table_name,
-            'table_abbrev': '',  # Will be populated later
-            'sensitivity_level': '',  # Will be populated later
-            'table_description': table_description,
-            'columns': columns
+            "table_name": table_name,           # cleaned (slashes -> underscores)
+            "table_abbrev": "",                 # to be filled later
+            "sensitivity_level": "",            # to be filled later
+            "table_description": table_description,
+            "columns": columns,
         }
-        
+
         metadata = {
-            'column_count': len(columns),
-            'table_name': table_name
+            "column_count": len(columns),
+            "table_name": table_name,
         }
-        
+
         return table, metadata
-        
+
     except UnicodeDecodeError as e:
-        return None, {'error': f'File encoding error: {str(e)}'}
+        return None, {"error": f"File encoding error: {str(e)}"}
     except Exception as e:
-        return None, {'error': f'Unexpected error: {str(e)}'}
+        return None, {"error": f"Unexpected error: {str(e)}"}
+
 
 
 def parse_all_se15_files(directory: str) -> Dict[str, any]:
     """
     Parse all SE15 .txt files in the specified directory.
-    
-    This function is designed to handle ANY number of SE15 files with varying
-    structures (different tables, column counts, etc.) as long as they follow
-    the standard SE15 export format.
-    
-    Args:
-        directory: Directory containing SE15 .txt files
-        
-    Returns:
-        Dictionary with parsing results and statistics
+
+    This function ONLY parses.
+    It does NOT rename column names or apply NLP.
+    If you want abbreviations, do it in a separate step using Abbreviator
+    and write into 'table_abbrev' / 'column_abbrev'.
     """
     results = {
         'tables': [],
@@ -176,30 +249,28 @@ def parse_all_se15_files(directory: str) -> Dict[str, any]:
         'total_columns': 0,
         'errors': []
     }
-    
+
     # Check if directory exists
     if not os.path.exists(directory):
         results['errors'].append(f"Directory not found: {directory}")
         return results
-    
+
     # Get all .txt files from directory
     txt_files = [f for f in os.listdir(directory) if f.endswith('.txt')]
-    
+
     if not txt_files:
         results['errors'].append(f"No .txt files found in {directory}")
         return results
-    
+
     results['total_files'] = len(txt_files)
-    
-    # Process each file
+
     for filename in sorted(txt_files):
         file_path = os.path.join(directory, filename)
-        
+
         print(f"Processing: {filename}")
-        
-        # Parse the file
+
         table_dict, metadata = parse_se15_file(file_path)
-        
+
         if table_dict:
             results['tables'].append(table_dict)
             results['processed_tables'] += 1
@@ -209,7 +280,7 @@ def parse_all_se15_files(directory: str) -> Dict[str, any]:
             error_msg = f"{filename}: {metadata.get('error', 'Unknown error')}"
             results['errors'].append(error_msg)
             print(f"  ✗ Error: {metadata.get('error', 'Unknown error')}")
-    
+
     return results
 
 
