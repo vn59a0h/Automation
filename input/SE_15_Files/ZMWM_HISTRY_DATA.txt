@@ -1,0 +1,22 @@
+﻿
+		Table Name	Short Description
+		Table field	Ac	Short Description	Package	Author	Date	Tab.cat.	TabPos	Name of include	Data element	Domain name	Key	Check table	Defaults	Chg	SET/GET Parameter ID	Reference table	Ref. field	Data Type	Length	OutLeng	Lowercase	Dec.Places	Sn	Heading	Short	Medium Field Label	Long field label	L
+
+		ZMWM_HISTRY_DATA	Database Table to display history data on pick accuracy
+	X	MANDT	A	Client	ZEWM	SAP	24.08.1995	TRANSP	     1		MANDT	MANDT	X							CLNT	     3	      3				Cl.	Client	Client	Client
+	X	HUIDENT	A	Handling Unit Identification	ZEWM	SAP	08.04.2016	TRANSP	     2		/SCWM/DE_HUIDENT	/SCWM/DO_HUIDENT	X			X				CHAR	    20	     20				Handling Unit	HU	Handling Unit	Handling Unit
+	X	PICKER	A	Picker	ZEWM	MARIUS.GREEF	21.11.2023	TRANSP	     3		ZMWM_PICKER	UNAME	X							CHAR	    12	     12				Picker	Picker	Picker	Picker
+	X	CHECKER	A	Checker	ZEWM	MARIUS.GREEF	21.11.2023	TRANSP	     4		ZMWM_CHECKER	UNAME	X							CHAR	    12	     12				Checker	Checker	Checker	Checker
+	X	STG_LANE	A	Staging lane	ZEWM	MARIUS.GREEF	21.11.2023	TRANSP	     5		ZMWM_STG_LANE	/SCWM/LGPLA	X							CHAR	    18	     18				Staging lane	StgLn	Staging lane	Staging lane
+	X	CREATED	A	Date	ZEWM	SAP	06.05.1997	TRANSP	     6		DATUM	DATUM	X							DATS	     8	     10					Date	Date	Date
+	X	MATID	A	Product	ZEWM	SAP	08.04.2016	TRANSP	     7		/SCWM/DE_MATID	/SCMB/MDL_MATID_CE	X			X				RAW	    16	     40				Product	Product	Product	Product
+	X	EAN11	A	International Article Number (EAN/UPC)	ZEWM	SAP	26.01.2018	TRANSP	     8		EAN11	EAN11	X			X	EAN			CHAR	    18	     18				EAN/UPC	EAN/UPC	EAN/UPC	EAN/UPC
+	X	TIME	A	Time	ZEWM	SAP	04.06.1992	TRANSP	     9		UZEIT	UZEIT	X							TIMS	     6	      8				Time	Time	Time	Time
+	X	LINE_CAT	A	HU check line category	ZEWM	MARIUS.GREEF	21.11.2023	TRANSP	    10		ZMWM_CHK_LINETYPE	ZBTW_CHK_LINETYPE			X					CHAR	     1	      1				HU check line category	Line cat	Line category	HU check line category
+	X	LGNUM	A	Warehouse Number/Warehouse Complex	ZEWM	SAP	08.04.2016	TRANSP	    11		/SCWM/LGNUM	/SCWM/LGNUM				X	/SCWM/LGN			CHAR	     4	      4				WhN	Whse No.	Warehouse No.	Warehouse Number
+	X	SYSTEM_QTY	A	System quantity	ZEWM	MARIUS.GREEF	21.11.2023	TRANSP	    12		ZMWM_CHK_SQTY	/SCWM/DO_QUAN15						ZMWM_HU_CHK_POS	CUOM	QUAN	    15	     20		         3	X	System quantity	System qty	System quantity	System quantity
+	X	SUOM	A	System unit of measure	ZEWM	MARIUS.GREEF	21.11.2023	TRANSP	    13		ZMWM_CHK_SUOM	MEINS								UNIT	     3	      3	X			SUoM	SUoM	SUoM	SUoM
+	X	COUNTED_QTY	A	Counted quantity	ZEWM	MARIUS.GREEF	21.11.2023	TRANSP	    14		ZMWM_CHK_CQTY	/SCWM/DO_QUAN15						ZMWM_HU_CHK_POS	CUOM	QUAN	    15	     20		         3	X	Counted quantity	Cntd qty	Counted quantity	Counted quantity
+	X	CUOM	A	Counted unit of measure	ZEWM	MARIUS.GREEF	21.11.2023	TRANSP	    15		ZMWM_CHK_CUOM	MEINS								UNIT	     3	      3	X			CUoM	CUoM	CUoM	CUoM
+	X	DIFFERENCE	A	Difference	ZEWM	MARIUS.GREEF	21.11.2023	TRANSP	    16		ZMWM_CHK_DQTY	/SCWM/DO_QUAN15						ZMWM_HU_CHK_POS	CUOM	QUAN	    15	     20		         3	X	Difference	Difference	Difference	Difference
+	X	DUOM	A	Difference unit of measure	ZEWM	MARIUS.GREEF	21.11.2023	TRANSP	    17		ZMWM_CHK_DUOM	MEINS								UNIT	     3	      3	X			DUoM	DUoM	DUoM	DUoM
