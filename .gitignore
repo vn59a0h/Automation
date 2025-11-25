@@ -1,7 +1,7 @@
 venv/
 __pycache__
 __pycache__/
-
+output
 .venv
 venv
 .DS_Store
