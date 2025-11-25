@@ -82,7 +82,7 @@ def create_column_mapping_file(row, docs_dir):
         "dataSensitivity": row.dataSensitivity if hasattr(row, 'dataSensitivity') else "ns",
         "dlSchemaName": row.dlSchemaName if hasattr(row, 'dlSchemaName') else "",
         "dlTableName": row.table_name if hasattr(row, 'table_name') else "",
-        "icdsTableName": row.icdsTableName if hasattr(row, 'icdsTableName') else "",
+        "icdsTableName": f"EWM.dbo.{row.icdsTableName}_VW" if hasattr(row, 'icdsTableName') else "",
         "keyPreCombine": "ds_load_ts",
         "keyPrimaryKey": ", ".join(primary_keys) if primary_keys else "",
         "tableLoadType": table_load_type,
