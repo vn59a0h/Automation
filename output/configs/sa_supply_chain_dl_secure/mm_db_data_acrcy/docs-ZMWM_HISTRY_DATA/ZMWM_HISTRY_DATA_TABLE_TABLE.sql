@@ -1,0 +1,45 @@
+USE [EWM]
+GO
+
+/****** Object:  Table [dbo].[ZMWM_HISTRY_DATA]    Script Date: 2025-11-25 11:41:21 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ZMWM_HISTRY_DATA](
+	[MANDT] [nvarchar](3) NOT NULL,
+	[HUIDENT] [nvarchar](20) NOT NULL,
+	[PICKER] [nvarchar](12) NOT NULL,
+	[CHECKER] [nvarchar](12) NOT NULL,
+	[STG_LANE] [nvarchar](18) NOT NULL,
+	[CREATED] [nvarchar](8) NOT NULL,
+	[MATID] [varbinary](16) NOT NULL,
+	[EAN11] [nvarchar](18) NOT NULL,
+	[TIME] [nvarchar](6) NOT NULL,
+	[LINE_CAT] [nvarchar](1) NOT NULL,
+	[LGNUM] [nvarchar](4) NOT NULL,
+	[SYSTEM_QTY] [decimal](15, 3) NOT NULL,
+	[SUOM] [nvarchar](3) NOT NULL,
+	[COUNTED_QTY] [decimal](15, 3) NOT NULL,
+	[CUOM] [nvarchar](3) NOT NULL,
+	[DIFFERENCE] [decimal](15, 3) NOT NULL,
+	[DUOM] [nvarchar](3) NOT NULL,
+	[SLTTIME] [decimal](15, 0) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MANDT] ASC,
+	[HUIDENT] ASC,
+	[PICKER] ASC,
+	[CHECKER] ASC,
+	[STG_LANE] ASC,
+	[CREATED] ASC,
+	[MATID] ASC,
+	[EAN11] ASC,
+	[TIME] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 60, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+

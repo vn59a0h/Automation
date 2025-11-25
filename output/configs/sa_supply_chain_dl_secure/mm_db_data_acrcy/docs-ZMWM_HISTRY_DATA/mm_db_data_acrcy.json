@@ -1,0 +1,29 @@
+{
+  "columnMapping": {
+    "MANDT": "clnt",
+    "HUIDENT": "hndl_unit_id",
+    "PICKER": "pick",
+    "CHECKER": "chec",
+    "STG_LANE": "stag_lane",
+    "CREATED": "dt",
+    "MATID": "prod",
+    "EAN11": "arti_nbr",
+    "TIME": "tm",
+    "LINE_CAT": "chk_line_catg",
+    "LGNUM": "whse_cmplx",
+    "SYSTEM_QTY": "sys_qty",
+    "SUOM": "sys_unit_meas",
+    "COUNTED_QTY": "cnt_qty",
+    "CUOM": "cnt_unit_meas",
+    "DIFFERENCE": "diff",
+    "DUOM": "diff_unit_meas"
+  },
+  "dataSensitivity": "se",
+  "dlSchemaName": "sa_supply_chain_dl_secure",
+  "dlTableName": "mm_db_data_acrcy",
+  "icdsTableName": "ZMWM_HISTRY_DATA",
+  "keyPreCombine": "ds_load_ts",
+  "keyPrimaryKey": "clnt, hndl_unit_id, pick, chec, stag_lane, dt, prod, arti_nbr, tm",
+  "tableLoadType": "incremental",
+  "targetCatalogBucket": "gs://932bc9f50d47e94a1727cacc3a61c0e7a3fb3573d08c1f5b637d33ea7c6980/mm_db_data_acrcy/"
+}

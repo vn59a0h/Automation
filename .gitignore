@@ -2,7 +2,6 @@ venv/
 __pycache__
 __pycache__/
 
-configs
 .venv
 venv
 .DS_Store
