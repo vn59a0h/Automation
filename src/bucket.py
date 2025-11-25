@@ -174,20 +174,20 @@ def parse_final_bucket_info(final_bucket_file=None, env='dev'):
     
     # Read the FinalBucketInfo.csv file
     final_df = pd.read_csv(final_bucket_file)
-    
+    # Check for required columns
+    required_columns = ['tableName', 'bucket_name']
+    missing_cols = [col for col in required_columns if col not in final_df.columns]
+    if missing_cols:
+        raise ValueError(f"FinalBucketInfo.csv is missing columns: {missing_cols}. Found columns: {list(final_df.columns)}")
     # Extract required columns and rename
     bucket_mapping = final_df[['tableName', 'bucket_name']].copy()
     bucket_mapping.columns = ['tableName', 'bucket_id']
-    
     # Convert to lowercase for consistent matching
     bucket_mapping['tableName'] = bucket_mapping['tableName'].str.lower()
-    
     # Remove duplicates
     bucket_mapping = bucket_mapping.drop_duplicates(subset=['tableName'])
-    
     print(f"\n Parsed FinalBucketInfo.csv")
     print(f"   Found {len(bucket_mapping)} bucket mappings")
-    
     return bucket_mapping
 
 
@@ -201,38 +201,27 @@ def merge_bucket_ids(df, bucket_mapping_df):
     Returns:
         pd.DataFrame: Dataframe with bucket_id column added
     """
-    # Merge on lowercase table name
+    # Merge on lowercase full table name
     df_copy = df.copy()
-    
-    # Create temporary column for matching
-    # The table_name in df has prefix (e.g., mm_bp_data) but bucket_mapping has base name (bp_data)
-    # So we need to strip the prefix for matching
     df_copy['_temp_table_lower'] = df_copy['table_name'].str.lower()
-    
-    # Try to extract base name by removing common prefixes (mm_, sa_, etc.)
-    # Pattern: if table_name starts with XX_, extract everything after the first _
-    df_copy['_temp_base_name'] = df_copy['_temp_table_lower'].str.replace(r'^[a-z]{2}_', '', regex=True)
-    
-    # Merge with bucket mapping using base name
+    bucket_mapping_df_copy = bucket_mapping_df.copy()
+    bucket_mapping_df_copy['tableName'] = bucket_mapping_df_copy['tableName'].str.lower()
+    # Merge using full table name
     df_merged = df_copy.merge(
-        bucket_mapping_df,
-        left_on='_temp_base_name',
+        bucket_mapping_df_copy,
+        left_on='_temp_table_lower',
         right_on='tableName',
         how='left'
     )
-    
     # Drop temporary columns
-    df_merged = df_merged.drop(columns=['_temp_table_lower', '_temp_base_name', 'tableName'], errors='ignore')
-    
+    df_merged = df_merged.drop(columns=['_temp_table_lower', 'tableName'], errors='ignore')
     # Report merge results
     bucket_count = df_merged['bucket_id'].notna().sum()
     missing_count = df_merged['bucket_id'].isna().sum()
-    
     print(f"\n🔗 Merged bucket IDs into dataframe:")
     print(f"   ✓ Tables with bucket_id: {bucket_count}")
     if missing_count > 0:
         print(f"    Tables without bucket_id: {missing_count}")
         missing_tables = df_merged[df_merged['bucket_id'].isna()]['table_name'].tolist()
         print(f"   Missing tables: {', '.join(missing_tables[:5])}")
-    
     return df_merged

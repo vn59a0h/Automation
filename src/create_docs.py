@@ -42,6 +42,8 @@ def create_column_mapping_file(row, docs_dir):
         mapping = getattr(row, 'column_mapping', None)
     if mapping is None:
         mapping = {}
+    # Always add DS_LOAD_START_TS mapping
+    mapping['DS_LOAD_START_TS'] = 'ds_load_ts'
     
     # Get bucket_id if available
     bucket_id = None
